@@ -1,5 +1,5 @@
 - alias: 'Telegram bot reply pong to ping'
-  hide_entity: false
+  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -10,3 +10,19 @@
       data_template:
         message: >
           Pong
+
+- alias: 'Telegram send random kitty'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/kitty'
+  action:
+    service: notify.Telegram_Notifier_To_User_2
+    data:
+      message: Hey...
+      data:
+        photo:
+          - url: https://thecatapi.com/api/images/get?type=jpg
+            caption: Hey... here is a random Kitty for U ❤️
