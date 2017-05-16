@@ -1,13 +1,10 @@
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Angie
-  # Location required to calculate the time the sun rises and sets
-  # latitude: 0
-  # longitude: 0
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  # elevation: 0
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Budapest
 
 # Enables the frontend
