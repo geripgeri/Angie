@@ -21,6 +21,12 @@ updater:
 # Discover some devices automatically
 discovery:
 
+# Media players
+media_player:
+  - platform: mpd
+    host: !secret media_player_mpd_host
+    password: !secret media_player_mpd_password
+
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
