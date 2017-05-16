@@ -1,0 +1,12 @@
+- alias: 'Telegram bot reply pong to ping'
+  hide_entity: false
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/ping'
+  action:
+    - service: notify.Telegram_Notifier_To_User_1
+      data_template:
+        message: >
+          Pong
