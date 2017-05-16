@@ -27,6 +27,13 @@ media_player:
     host: !secret media_player_mpd_host
     password: !secret media_player_mpd_password
 
+telegram_bot:
+  platform: polling
+  api_key: !secret telegram_bot_api_key
+  allowed_chat_ids:
+    - !secret telegram_bot_userid_1
+    - !secret telegram_bot_userid_2
+
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
