@@ -8,10 +8,21 @@
   action:
     - service: notify.Telegram_Notifier_To_User_1
       data_template:
-        message: >
-          Pong
+        message: 'Pong'
 
-- alias: 'Telegram send random kitty'
+- alias: 'Telegram bot reply pong to ping in a group chat'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: !secret telegram_group_ping_cmd
+  action:
+    - service: notify.Telegram_Notifier_To_Group
+      data_template:
+        message: 'Pong'
+
+- alias: 'Telegram sends random kitty'
   hide_entity: true
   trigger:
     platform: event
