@@ -1,3 +1,17 @@
+- alias: 'Telegram bot start command'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/start'
+  action:
+    - service: notify.Telegram_Notifier_To_User_1
+      data:
+        message: 'commands'
+        data:
+          keyboard:
+            - '/ping, /pause'
+
 - alias: 'Telegram bot reply pong to ping'
   hide_entity: true
   trigger:
