@@ -57,3 +57,4 @@ tts:
 group: !include groups.yaml
 notify: !include_dir_merge_list notifies
 automation: !include_dir_merge_list automation
+light: !include_dir_merge_list lights

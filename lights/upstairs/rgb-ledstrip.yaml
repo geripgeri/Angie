@@ -1,0 +1,6 @@
+- platform: rpi_gpio_pwm
+  leds:
+    - name: Upstairs RGB Ledstrip
+      driver: gpio
+      pins: [2,3,4]
+      type: rgb
