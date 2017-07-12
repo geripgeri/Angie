@@ -46,10 +46,6 @@ logbook:
 # Track the sun
 sun:
 
-# Weather Prediction
-sensor:
-  platform: yr
-
 # Text to speech
 tts:
   platform: google
@@ -57,4 +53,5 @@ tts:
 group: !include groups.yaml
 notify: !include_dir_merge_list notifies
 automation: !include_dir_merge_list automation
+sensor: !include_dir_merge_list sensors
 light: !include_dir_merge_list lights
