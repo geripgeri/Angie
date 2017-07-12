@@ -2,5 +2,5 @@
   leds:
     - name: Upstairs RGB Ledstrip
       driver: gpio
-      pins: [2,3,4]
+      pins: [16,20,21]
       type: rgb
