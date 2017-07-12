@@ -1,0 +1,5 @@
+- platform: nmap_tracker
+  hosts: !secret nmap_hosts
+  home_interval: 10
+  exclude:
+     !secret nmap_excludes
