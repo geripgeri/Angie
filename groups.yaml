@@ -1,0 +1,19 @@
+## Cards
+living_room_environment_card:
+  name: Environment
+  entities:
+    - sensor.living_room_pressure
+    - sensor.living_room_temperature
+
+living_room_upstairs_card:
+  name: Upstairs
+  entities:
+    - light.upstairs_rgb_ledstrip
+
+## Views
+living-room-view:
+  name: Living room
+  view: yes
+  entities:
+    - group.living_room_environment_card
+    - group.living_room_upstairs_card
