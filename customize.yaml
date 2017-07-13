@@ -1,0 +1,6 @@
+sensor.living_room_temperature:
+  friendly_name: Temperature
+
+sensor.living_room_pressure:
+  friendly_name: Pressure
+  icon: mdi:clock-in

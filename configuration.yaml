@@ -6,6 +6,8 @@ homeassistant:
   elevation: !secret home_elevation
   unit_system: metric
   time_zone: Europe/Budapest
+  customize: !include customize.yaml
+
 
 # Enables the frontend
 frontend:
