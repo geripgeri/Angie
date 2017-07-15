@@ -15,6 +15,19 @@ haveibeenpwned_card:
   entities:
       !secret haveibeenpwned_entities
 
+weather_card:
+  name: Weather
+  entities:
+      - sensor.yr_precipitation
+      - sensor.yr_symbol
+      - sensor.yr_temperature
+      - sun.sun
+
+waqi_card:
+  name: World Air Quality Index
+  entities:
+      !secret aqicn_api_entities
+
 ## Views
 living-room-view:
   name: Living room
@@ -28,3 +41,10 @@ misc-view:
   view: yes
   entities:
     - group.haveibeenpwned_card
+
+environment:
+  name: Environment
+  view: yes
+  entities:
+    - group.weather_card
+    - group.waqi_card
