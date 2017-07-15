@@ -28,6 +28,13 @@ waqi_card:
   entities:
       !secret aqicn_api_entities
 
+speed_stes_card:
+  name: Speed test
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+
 ## Views
 living-room-view:
   name: Living room
@@ -41,6 +48,7 @@ misc-view:
   view: yes
   entities:
     - group.haveibeenpwned_card
+    - group.speed_stes_card
 
 environment:
   name: Environment
