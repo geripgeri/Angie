@@ -4,3 +4,12 @@ sensor.living_room_temperature:
 sensor.living_room_pressure:
   friendly_name: Pressure
   icon: mdi:clock-in
+
+sensor.yr_precipitation:
+  friendly_name: Precipitation
+
+sensor.yr_symbol:
+  friendly_name: Symbol
+
+sensor.yr_temperature:
+  friendly_name: Temperature

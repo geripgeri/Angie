@@ -18,9 +18,9 @@ haveibeenpwned_card:
 weather_card:
   name: Weather
   entities:
-      - sensor.yr_precipitation
       - sensor.yr_symbol
       - sensor.yr_temperature
+      - sensor.yr_precipitation
       - sun.sun
 
 waqi_card:
