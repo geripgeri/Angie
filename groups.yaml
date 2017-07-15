@@ -10,6 +10,11 @@ living_room_upstairs_card:
   entities:
     - light.upstairs_rgb_ledstrip
 
+haveibeenpwned_card:
+  name: Have I been pwned?
+  entities:
+      !secret haveibeenpwned_entities
+
 ## Views
 living-room-view:
   name: Living room
@@ -17,3 +22,9 @@ living-room-view:
   entities:
     - group.living_room_environment_card
     - group.living_room_upstairs_card
+
+misc-view:
+  name: Misc
+  view: yes
+  entities:
+    - group.haveibeenpwned_card
