@@ -35,6 +35,11 @@ speed_stes_card:
     - sensor.speedtest_download
     - sensor.speedtest_upload
 
+ssl_certificate_expiry_card:
+  name: SSL Expiry
+  entities:
+    - sensor.ssl_certificate_expiry
+
 ## Views
 living-room-view:
   name: Living room
@@ -49,6 +54,7 @@ misc-view:
   entities:
     - group.haveibeenpwned_card
     - group.speed_stes_card
+    - group.ssl_certificate_expiry_card
 
 environment:
   name: Environment
