@@ -1,0 +1,6 @@
+- platform: rpi_gpio_pwm
+  leds:
+    - name: Shelf Led strip
+      driver: gpio
+      pins: 19
+      type: simple
