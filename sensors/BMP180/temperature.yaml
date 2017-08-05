@@ -1,4 +1,4 @@
 - platform: command_line
   name: Living room Temperature
-  command: "sudo python ~/.homeassistant/scripts/BMP180/temperature.py"
+  command: "sudo python3 ~/.homeassistant/scripts/BMP180/temperature.py"
   unit_of_measurement: "°C"
