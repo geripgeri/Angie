@@ -52,6 +52,10 @@ sun:
 tts:
   platform: google
 
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_client_secret
+
 group: !include groups.yaml
 notify: !include_dir_merge_list notifies
 automation: !include_dir_merge_list automation
