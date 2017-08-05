@@ -1,0 +1,7 @@
+- platform: mqtt
+  state_topic: "angie/entrance-door"
+  name: "Entrance Door"
+  payload_on: true
+  payload_off: false
+  device_class: opening
+  value_template: '{{ value_json.door }}'
