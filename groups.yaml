@@ -8,7 +8,13 @@ living_room_environment_card:
 living_room_upstairs_card:
   name: Upstairs
   entities:
-    - light.upstairs_rgb_ledstrip
+    - light.upstairs_rgb_led_strip
+
+living_room_downstairs_card:
+  name: Downstairs
+  entities:
+    - light.workstation_led_strip
+    - light.shelf_led_strip
 
 haveibeenpwned_card:
   name: Have I been pwned?
@@ -26,7 +32,7 @@ weather_card:
 waqi_card:
   name: World Air Quality Index
   entities:
-      !secret aqicn_api_entities
+    -  !secret aqicn_api_entities
 
 speed_stes_card:
   name: Speed test
@@ -47,6 +53,7 @@ living-room-view:
   entities:
     - group.living_room_environment_card
     - group.living_room_upstairs_card
+    - group.living_room_downstairs_card
 
 misc-view:
   name: Misc
