@@ -2,5 +2,5 @@
   token: !secret aqicn_api_token
   locations:
     - !secret aqicn_api_locations
-  stations:
-    - !secret aqicn_api_stations
+#  stations:
+#    - !secret aqicn_api_stations

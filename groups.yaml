@@ -32,7 +32,7 @@ weather_card:
 waqi_card:
   name: World Air Quality Index
   entities:
-    -  !secret aqicn_api_entities
+      !secret aqicn_api_entities
 
 speed_stes_card:
   name: Speed test
