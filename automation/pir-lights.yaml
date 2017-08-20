@@ -1,0 +1,27 @@
+- alias: "Trun Workstation LED's on triggered by PIR"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_workstation
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: sun
+    after: sunset
+    before_offset: "-1:00:00"
+  action:
+    service: light.turn_on
+    entity_id: light.workstation_led_strip
+
+- alias: "Trun Workstation LED's off triggered by PIR"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_workstation
+    from: 'on'
+    to: 'off'
+  condition:
+    condition: sun
+    after: sunset
+    before_offset: "-1:00:00"
+  action:
+    service: light.turn_off
+    entity_id: light.workstation_led_strip
