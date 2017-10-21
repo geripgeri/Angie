@@ -25,3 +25,18 @@ sensor.speedtest_upload:
 
 sensor.ssl_certificate_expiry:
   friendly_name: !secret ssl_cert_expiry_host
+
+binary_sensor.entrance_door:
+  device_class: opening
+
+binary_sensor.entrance_door_lock:
+  device_class: safety
+
+binary_sensor.living_room_door:
+  device_class: opening
+
+binary_sensor.pir_workstation:
+  device_class: motion
+
+sensor.reddit_sunset_image:
+  hidden: true

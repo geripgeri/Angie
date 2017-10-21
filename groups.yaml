@@ -4,6 +4,8 @@ living_room_environment_card:
   entities:
     - sensor.living_room_pressure
     - sensor.living_room_temperature
+    - sensor.dht11_humidity
+    - sensor.dht11_temperature
 
 living_room_upstairs_card:
   name: Upstairs
@@ -15,6 +17,19 @@ living_room_downstairs_card:
   entities:
     - light.workstation_led_strip
     - light.shelf_led_strip
+
+living_room_sensors_card: 
+  name: Living room Sensors
+  entities:
+    - binary_sensor.living_room_door
+    - binary_sensor.pir_workstation
+
+living_room_thermostat_card: 
+  name: Living room Thermostat
+  entities:
+    - sensor.living_room_temperature
+    - climate.living_room_thermostat
+    - switch.living_room_heater
 
 haveibeenpwned_card:
   name: Have I been pwned?
@@ -28,6 +43,7 @@ weather_card:
       - sensor.yr_temperature
       - sensor.yr_precipitation
       - sun.sun
+      - camera.weather_forcast
 
 waqi_card:
   name: World Air Quality Index
@@ -40,11 +56,30 @@ speed_stes_card:
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload
+    - sensor.external_ip
 
 ssl_certificate_expiry_card:
   name: SSL Expiry
   entities:
     - sensor.ssl_certificate_expiry
+
+iss_card:
+  name: International Space Station
+  entities:
+    - binary_sensor.iss
+    - camera.iss
+
+
+security_entrance_door_card:
+  name: Entrance Door
+  entities:
+    - binary_sensor.entrance_door
+    - binary_sensor.entrance_door_lock
+
+security_alarm_card:
+  name: Alarm
+  entities:
+    - alarm_control_panel.ha_alarm
 
 ## Views
 living-room-view:
@@ -54,6 +89,15 @@ living-room-view:
     - group.living_room_environment_card
     - group.living_room_upstairs_card
     - group.living_room_downstairs_card
+    - group.living_room_sensors_card
+    - group.living_room_thermostat_card
+
+security_view:
+  name: Security
+  view: yes
+  entities:
+    - group.security_alarm_card
+    - group.security_entrance_door_card
 
 misc-view:
   name: Misc
@@ -62,6 +106,7 @@ misc-view:
     - group.haveibeenpwned_card
     - group.speed_stes_card
     - group.ssl_certificate_expiry_card
+    - group.iss_card
 
 environment:
   name: Environment
