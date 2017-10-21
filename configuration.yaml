@@ -33,8 +33,7 @@ telegram_bot:
   platform: polling
   api_key: !secret telegram_bot_api_key
   allowed_chat_ids:
-    - !secret telegram_bot_userid_1
-    - !secret telegram_bot_userid_2
+    !secret telegram_bot_allowed_users
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -58,6 +57,11 @@ google:
 
 mqtt:
   embedded:
+
+alarm_control_panel:
+  - platform: manual
+    code: !secret alarm_code
+    trigger_time: 1
 
 group: !include groups.yaml
 notify: !include_dir_merge_list notifies

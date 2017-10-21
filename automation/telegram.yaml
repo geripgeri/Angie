@@ -10,7 +10,7 @@
         message: 'commands'
         data:
           keyboard:
-            - '/ping, /kitty'
+            - '/ping, /status, /kitty'
 
 - alias: 'Telegram bot reply pong to ping'
   hide_entity: true
@@ -79,3 +79,38 @@
   - service: notify.Telegram_Notifier_To_User_1
     data:
       message: "Golden hour notification sent \U0001F609"
+
+- alias: 'Telegram bot reply the alarm status'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: /status
+  action:
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: "Alarm status: {{ states.alarm_control_panel.ha_alarm.state }}"
+
+- alias: 'Telegram bot sends alert when a door opened.'
+  hide_entity: false
+  trigger:
+  - entity_id: binary_sensor.entrance_door
+    platform: state
+    to: 'on'
+  action:
+    - service: notify.Telegram_Notifier_To_Group
+      data_template:
+        message: 'The Entrance Door has been opened.'
+
+- alias: 'Telegram bot sends alert when a alarm triggered.'
+  hide_entity: false
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    to: triggered
+  action:
+    - service: notify.Telegram_Notifier_To_Group
+      data_template:
+        message: 'The alarm triggered!'
