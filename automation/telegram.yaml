@@ -10,7 +10,7 @@
         message: 'commands'
         data:
           keyboard:
-            - '/ping, /pause'
+            - '/ping, /kitty'
 
 - alias: 'Telegram bot reply pong to ping'
   hide_entity: true
@@ -30,7 +30,7 @@
     platform: event
     event_type: telegram_command
     event_data:
-      command: !secret telegram_group_ping_cmd
+      command: !secret telegram_bot_group_ping_cmd
   action:
     - service: notify.Telegram_Notifier_To_Group
       data_template:
@@ -44,10 +44,38 @@
     event_data:
       command: '/kitty'
   action:
-    service: notify.Telegram_Notifier_To_User_2
+  - service: notify.Telegram_Notifier_To_User_2
     data:
       message: Hey...
       data:
         photo:
           - url: https://thecatapi.com/api/images/get?type=jpg
             caption: Hey... here is a random Kitty for U ❤️
+
+  - service: notify.Telegram_Notifier_To_User_1
+    data:
+      message: "Message sent \U0001F609"
+
+- alias: 'Telegram bot notifies when golden hour apaches'
+  hide_entity: false
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:30:00"
+  condition:
+    condition: numeric_state
+    entity_id: sensor.yr_symbol
+    above: 0
+    below: 4
+  action:
+  - service: notify.Telegram_Notifier_To_User_2
+    data_template:
+      message: Hey...
+      data:
+        photo:
+        - url: "{{ states.sensor.reddit_sunset_image.state }}"
+          caption: "The golden hour apaches!\nTake some *badass* pictures \U0001F60E \U0001F4F7 \nToday the will set at: {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M:%S') }}"
+
+  - service: notify.Telegram_Notifier_To_User_1
+    data:
+      message: "Golden hour notification sent \U0001F609"

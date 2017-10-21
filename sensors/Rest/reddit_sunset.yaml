@@ -1,0 +1,4 @@
+- platform: rest
+  resource: https://www.reddit.com/r/sunset/top.json
+  name: Reddit Sunset Image
+  value_template: '{{ value_json.data.children[0].data.preview.images[0].source.url }}'
