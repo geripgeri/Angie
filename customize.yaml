@@ -40,3 +40,6 @@ binary_sensor.pir_workstation:
 
 sensor.reddit_sunset_image:
   hidden: true
+
+sensor.yr_url:
+  hidden: true
