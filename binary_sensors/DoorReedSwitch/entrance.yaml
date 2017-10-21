@@ -3,5 +3,11 @@
   name: "Entrance Door"
   payload_on: true
   payload_off: false
-  device_class: opening
-  value_template: '{{ value_json.door }}'
+  value_template: '{{ value_json.open }}'
+
+- platform: mqtt
+  state_topic: "angie/entrance-door"
+  name: "Entrance Door Lock"
+  payload_on: false
+  payload_off: true
+  value_template: '{{ value_json.locked }}'
