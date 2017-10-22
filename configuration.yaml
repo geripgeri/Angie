@@ -71,3 +71,6 @@ light: !include_dir_merge_list lights
 device_tracker: !include_dir_merge_list device_trackers
 binary_sensor: !include_dir_merge_list binary_sensors
 camera: !include_dir_merge_list camera
+switch: !include_dir_merge_list switches
+climate: !include_dir_merge_list climate
+script: !include_dir_merge_list scripts
