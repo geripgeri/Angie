@@ -43,6 +43,7 @@ weather_card:
       - sensor.yr_temperature
       - sensor.yr_precipitation
       - sun.sun
+      - sensor.season
       - camera.weather_forcast
 
 waqi_card:
