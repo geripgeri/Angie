@@ -104,17 +104,6 @@
       data_template:
         message: 'The Entrance Door has been opened.'
 
-- alias: 'Telegram bot sends alert when alarm triggered.'
-  hide_entity: false
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.ha_alarm
-    to: triggered
-  action:
-    - service: notify.Telegram_Notifier_To_Group
-      data_template:
-        message: 'The alarm triggered!'
-
 - alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed.'
   hide_entity: false
   initial_state: false

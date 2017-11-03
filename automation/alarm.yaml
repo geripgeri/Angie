@@ -8,11 +8,13 @@
       to: 'on'
     - platform: state
       entity_id: binary_sensor.living_room_door
-      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
       state: armed_away
   action:
-    service: alarm_control_panel.alarm_trigger
-    entity_id: alarm_control_panel.ha_alarm
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
+    - service: notify.Telegram_Notifier_To_Group
+      data_template:
+        message: 'The alarm triggered by: *{{trigger.to_state.attributes.friendly_name }}*'
