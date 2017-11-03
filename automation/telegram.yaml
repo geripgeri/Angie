@@ -122,7 +122,7 @@
     event: start
   action:
     - delay:
-        seconds: 20
+        seconds: 60
     - service: automation.turn_on
       entity_id: automation.telegram_bot_sends_alert_when_haveibeenpwned_sensor_state_changed
 
