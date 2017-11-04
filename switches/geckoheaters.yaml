@@ -1,0 +1,7 @@
+- platform: rpi_gpio
+  ports:
+    23: Gecko heater upstairs
+
+- platform: rpi_gpio
+  ports:
+    24: Gecko heater downstairs
