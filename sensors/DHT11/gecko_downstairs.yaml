@@ -1,7 +1,7 @@
 - platform: dht
-  name: DHT11
+  name: Gecko downstairs
   sensor: DHT11
-  pin: 12
+  pin: 22
   monitored_conditions:
     - temperature
     - humidity
