@@ -163,3 +163,14 @@
     - service: notify.Telegram_Notifier_To_Group
       data_template:
         message: "The heater is on, please close the door."
+
+- alias: 'Telegram bot sends alert when Peidl.net HTTP response code Sensor state changed.'
+  hide_entity: false
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.peidlnet_status
+    above: 200
+  action:
+    - service: notify.Telegram_Notifier_To_User_1
+      data_template:
+        message: "https://peidl.net HTTP response code changed!\nStatus code: *{{ states.sensor.peidlnet_status.state }}*"

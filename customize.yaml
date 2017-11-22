@@ -23,9 +23,6 @@ sensor.speedtest_download:
 sensor.speedtest_upload:
   friendly_name: Upload
 
-sensor.ssl_certificate_expiry:
-  friendly_name: !secret ssl_cert_expiry_host
-
 binary_sensor.entrance_door:
   device_class: opening
 
@@ -46,3 +43,9 @@ sensor.yr_url:
 
 group.all_devices:
     hidden: false
+
+sensor.ssl_certificate_expiry:
+    friendly_name: SSL valid for
+
+sensor.peidlnet_status:
+    friendly_name: HTTP response code

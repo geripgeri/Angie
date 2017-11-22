@@ -1,3 +1,4 @@
 - platform: command_line
   name: Peidl.net status
+  scan_interval: 3600
   command: "sh ~/.homeassistant/scripts/HTTP/checkwebsiteresponse.sh https://peidl.net"

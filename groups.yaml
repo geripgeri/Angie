@@ -71,10 +71,11 @@ speed_stes_card:
     - sensor.speedtest_upload
     - sensor.external_ip
 
-ssl_certificate_expiry_card:
-  name: SSL Expiry
+peidl_net_card:
+  name: Peidl.net
   entities:
     - sensor.ssl_certificate_expiry
+    - sensor.peidlnet_status
 
 iss_card:
   name: International Space Station
