@@ -2,4 +2,5 @@
   name: Living room thermostat
   heater: switch.living_room_heater
   target_sensor: sensor.living_room_temperature
-  min_temp: 15
+  min_temp: 18
+  target_temp: 20

@@ -1,0 +1,13 @@
+- platform: generic_thermostat
+  name: Gecko downstairs thermostat
+  heater: switch.gecko_heater_downstairs
+  target_sensor: sensor.gecko_downstairs_temperature
+  min_temp: 20
+  target_temp: 21
+
+- platform: generic_thermostat
+  name: Gecko upstairs thermostat
+  heater: switch.gecko_heater_upstairs
+  target_sensor: sensor.gecko_upstairs_temperature
+  min_temp: 20
+  target_temp: 21
