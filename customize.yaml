@@ -43,3 +43,6 @@ sensor.reddit_sunset_image:
 
 sensor.yr_url:
   hidden: true
+
+group.all_devices:
+    hidden: false

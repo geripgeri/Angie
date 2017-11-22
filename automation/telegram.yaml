@@ -5,12 +5,13 @@
     event_data:
       command: '/start'
   action:
-    - service: notify.Telegram_Notifier_To_User_1
-      data:
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
         message: 'commands'
-        data:
-          keyboard:
-            - '/ping, /status, /kitty'
+        keyboard:
+          - '/ping, /kitty'
+          - '/status, /arm'
 
 - alias: 'Telegram bot replies pong to ping'
   hide_entity: true
@@ -54,7 +55,7 @@
 
   - service: notify.Telegram_Notifier_To_User_1
     data:
-      message: "Message sent \U0001F609"
+      message: "Random Kitty sent \U0001F609"
 
 - alias: 'Telegram bot notifies when golden hour approaches'
   hide_entity: false
@@ -92,6 +93,24 @@
       data_template:
         target: '{{ trigger.event.data.user_id }}'
         message: 'Alarm status: *{{ states.alarm_control_panel.ha_alarm.state }}*'
+
+- alias: 'Telegram bot arms the alarm'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: /arm
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.ha_alarm
+      data:
+        code: !secret alarm_code
+    - service: telegram_bot.send_message
+      data_template:
+        target: '{{ trigger.event.data.user_id }}'
+        message: 'Alarm armed, Alarm status: *{{ states.alarm_control_panel.ha_alarm.state }}*'
+
 
 - alias: 'Telegram bot sends alert when a door opened.'
   hide_entity: false
