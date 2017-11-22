@@ -1,0 +1,3 @@
+- platform: command_line
+  name: Peidl.net status
+  command: "sh ~/.homeassistant/scripts/HTTP/checkwebsiteresponse.sh https://peidl.net"
