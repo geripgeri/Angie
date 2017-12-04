@@ -1,0 +1,4 @@
+- platform: generic
+  still_image_url: http://{{ states.sensor.weather_url_head.state + now().strftime('%Y%m%d') + states.sensor.weather_url_middle.state + states.sensor.weather_url_tail.state }}
+  name: Weather Forcast v2
+  limit_refetch_to_url_change: true

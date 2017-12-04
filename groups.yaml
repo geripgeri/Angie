@@ -57,6 +57,7 @@ weather_card:
       - sun.sun
       - sensor.season
       - camera.weather_forcast
+      - camera.weather_forcast_v2
 
 waqi_card:
   name: World Air Quality Index

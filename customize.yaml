@@ -41,6 +41,15 @@ sensor.reddit_sunset_image:
 sensor.yr_url:
   hidden: true
 
+sensor.weather_url_head:
+  hidden: true
+
+sensor.weather_url_middle:
+  hidden: true
+
+sensor.weather_url_tail:
+  hidden: true
+
 group.all_devices:
     hidden: false
 
