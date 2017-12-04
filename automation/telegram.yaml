@@ -174,3 +174,13 @@
     - service: notify.Telegram_Notifier_To_User_1
       data_template:
         message: "https://peidl.net HTTP response code changed!\nStatus code: *{{ states.sensor.peidlnet_status.state }}*"
+
+- alias: 'Telegram bot sends alert when external ip changed.'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: sensor.external_ip
+  action:
+    - service: notify.Telegram_Notifier_To_User_1
+      data_template:
+        message: "External ip changed to: *{{ states.sensor.external_ip.state }}*"
