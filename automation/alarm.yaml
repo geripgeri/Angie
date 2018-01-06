@@ -27,8 +27,8 @@
 - alias: 'Trigger alarm while armed night'
   trigger:
     - platform: state
-      entity_id: binary_sensor.entrance_door
-      to: 'on'
+      entity_id: binary_sensor.entrance_door_lock
+      to: 'off'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
