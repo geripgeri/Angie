@@ -50,9 +50,6 @@ sensor.weather_url_middle:
 sensor.weather_url_tail:
   hidden: true
 
-group.all_devices:
-    hidden: false
-
 sensor.ssl_certificate_expiry:
     friendly_name: SSL valid for
 

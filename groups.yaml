@@ -87,10 +87,6 @@ security_entrance_door_card:
   entities:
     - binary_sensor.entrance_door
     - binary_sensor.entrance_door_lock
-
-security_alarm_card:
-  name: Alarm
-  entities:
     - alarm_control_panel.ha_alarm
 
 people_card:
@@ -112,7 +108,6 @@ security_view:
   name: Security
   view: yes
   entities:
-    - group.security_alarm_card
     - group.security_entrance_door_card
 
 misc-view:
