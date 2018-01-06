@@ -1,17 +1,10 @@
 ## Cards
-living_room_environment_card:
-  name: Environment
-  entities:
-    - sensor.living_room_pressure
-    - sensor.living_room_temperature
-    - sensor.dht11_humidity
-    - sensor.dht11_temperature
-
 living_room_upstairs_card:
   name: Upstairs
   entities:
     - light.upstairs_rgb_led_strip
-
+    - light.wunder_background
+    
 living_room_downstairs_card:
   name: Downstairs
   entities:
@@ -27,6 +20,10 @@ living_room_sensors_card:
 living_room_thermostat_card:
   name: Living room Thermostat
   entities:
+    - sensor.living_room_pressure
+    - sensor.dht11_humidity
+    - sensor.dht11_temperature
+
     - sensor.living_room_temperature
     - climate.living_room_thermostat
     - switch.living_room_heater
@@ -96,8 +93,8 @@ security_alarm_card:
   entities:
     - alarm_control_panel.ha_alarm
 
-devices_card:
-  name: Devices
+people_card:
+  name: People
   entities:
     - group.all_devices
 
@@ -106,7 +103,6 @@ living-room-view:
   name: Living room
   view: yes
   entities:
-    - group.living_room_environment_card
     - group.living_room_upstairs_card
     - group.living_room_downstairs_card
     - group.living_room_sensors_card
