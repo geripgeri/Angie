@@ -1,0 +1,54 @@
+- alias: 'Turn on the heater at day.'
+  trigger:
+    platform: time
+    at: '07:00:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.yr_temperature
+      below: 15
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.season
+          state: Spring
+        - condition: state
+          entity_id: sensor.season
+          state: Autumn
+        - condition: state
+          entity_id: sensor.season
+          state: Winter
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.living_room_thermostat
+      data:
+        temperature: 22
+      
+- alias: 'Turn off the heater at night.'
+  trigger:
+    platform: time
+    at: '22:00:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.yr_temperature
+      below: 15
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.season
+          state: Spring
+        - condition: state
+          entity_id: sensor.season
+          state: Autumn
+        - condition: state
+          entity_id: sensor.season
+          state: Winter
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.living_room_thermostat
+      data:
+        temperature: 20
+      
