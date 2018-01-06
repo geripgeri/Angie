@@ -91,7 +91,7 @@
       data:
         photo:
         - url: "{{ states.sensor.reddit_sunset_image.state }}"
-          caption: "The golden hour approaches!\nTake some *badass* pictures \U0001F60E \U0001F4F7 \nToday the will set at: {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M:%S') }}"
+          caption: "The golden hour approaches!\nTake some *badass* pictures \U0001F60E \U0001F4F7 \nToday the Sun will set at: {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M:%S') }}"
 
   - service: notify.Telegram_Notifier_To_User_1
     data:
