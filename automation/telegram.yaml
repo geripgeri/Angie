@@ -10,7 +10,7 @@
         target: '{{ trigger.event.data.user_id }}'
         message: 'commands'
         keyboard:
-          - '/ping, /kitty'
+          - '/ping, /kitty, /kitty-gif'
           - '/status, /arm'
 
 - alias: 'Telegram bot replies pong to ping'
@@ -51,6 +51,22 @@
       data:
         photo:
           - url: https://thecatapi.com/api/images/get?type=jpg
+            caption: Hey... here is a random Kitty for U ❤️
+        
+- alias: 'Telegram sends random kitty gif'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/kitty-gif'
+  action:
+  - service: notify.Telegram_Notifier_To_User_2
+    data:
+      message: Hey...
+      data:
+        video:
+          - url: https://thecatapi.com/api/images/get?type=gif
             caption: Hey... here is a random Kitty for U ❤️
 
   - service: notify.Telegram_Notifier_To_User_1
