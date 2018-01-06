@@ -1,4 +1,5 @@
 - alias: "Trun Workstation LED's on triggered by PIR"
+  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.pir_workstation
@@ -13,6 +14,7 @@
     entity_id: light.workstation_led_strip
 
 - alias: "Trun Workstation LED's off triggered by PIR"
+  hide_entity: true
   trigger:
     platform: state
     entity_id: binary_sensor.pir_workstation

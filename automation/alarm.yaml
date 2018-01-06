@@ -1,4 +1,5 @@
 - alias: 'Trigger alarm while armed away'
+  hide_entity: true
   trigger:
     - platform: state
       entity_id: binary_sensor.pir_workstation
@@ -25,6 +26,7 @@
 
         
 - alias: 'Trigger alarm while armed night'
+  hide_entity: true
   trigger:
     - platform: state
       entity_id: binary_sensor.entrance_door_lock
@@ -45,6 +47,7 @@
               caption: "The alarm triggered by: {{trigger.to_state.attributes.friendly_name }}"
 
 - alias: 'Arm alarm on leave'
+  hide_entity: true
   trigger:
     - platform: state
       entity_id: binary_sensor.entrance_door_lock
@@ -59,6 +62,7 @@
         code: !secret alarm_code
 
 - alias: 'Arm alarm at night'
+  hide_entity: true
   trigger:
     - platform: state
       entity_id: binary_sensor.entrance_door_lock
@@ -74,6 +78,7 @@
         code: !secret alarm_code
 
 - alias: 'Disarm alarm in the morning'
+  hide_entity: true
   trigger:
     - platform: time
       at: '07:00:00'

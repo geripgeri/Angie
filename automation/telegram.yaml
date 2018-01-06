@@ -1,4 +1,5 @@
 - alias: 'Telegram bot start command'
+  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -129,7 +130,7 @@
 
 
 - alias: 'Telegram bot sends alert when a door opened.'
-  hide_entity: false
+  hide_entity: true
   trigger:
   - entity_id: binary_sensor.entrance_door
     platform: state
@@ -140,7 +141,7 @@
         message: 'The Entrance Door has been opened.'
 
 - alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed.'
-  hide_entity: false
+  hide_entity: true
   initial_state: false
   trigger:
   - platform: state
@@ -162,7 +163,7 @@
       entity_id: automation.telegram_bot_sends_alert_when_haveibeenpwned_sensor_state_changed
 
 - alias: 'Telegram bot sends alert when the Heater is on and the Door is open.'
-  hide_entity: false
+  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.living_room_door
@@ -181,7 +182,7 @@
         message: "The heater is on, please close the door."
 
 - alias: 'Telegram bot sends alert when Peidl.net HTTP response code Sensor state changed.'
-  hide_entity: false
+  hide_entity: true
   trigger:
   - platform: numeric_state
     entity_id: sensor.peidlnet_status
