@@ -1,8 +1,9 @@
 - alias: 'Turn on the heater at day.'
   hide_entity: true
   trigger:
-    platform: time
-    at: '07:00:00'
+    platform: state
+    entity_id: group.all_devices
+    to: home
   condition:
     condition: and
     conditions:
@@ -22,14 +23,15 @@
           state: Winter
     - condition: and
       conditions:
-        - condition: state
-          entity_id: group.all_devices
-          state: home
+        - condition: time
+          after: '07:00:00'
+        - condition: time
+          before: '21:00:00'
   action:
     - service: climate.set_temperature
       entity_id: climate.living_room_thermostat
       data:
-        temperature: 22
+        temperature: 21.5
       
 - alias: 'Turn off the heater at night.'
   hide_entity: true
