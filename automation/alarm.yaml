@@ -51,7 +51,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.entrance_door_lock
-      to: 'on'
+      to: 'off'
   condition:
     - condition: time
       before: '21:00:00'
