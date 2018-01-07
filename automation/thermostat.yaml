@@ -36,8 +36,11 @@
 - alias: 'Turn off the heater at night.'
   hide_entity: true
   trigger:
-    platform: time
+  - platform: time
     at: '22:00:00'
+  - platform: state
+    entity_id: group.all_devices
+    from: home    
   condition:
     condition: and
     conditions:
