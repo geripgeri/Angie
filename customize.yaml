@@ -55,3 +55,6 @@ sensor.ssl_certificate_expiry:
 
 sensor.peidlnet_status:
     friendly_name: HTTP response code
+
+light.workstation_2_lights:
+  friendly_name: !secret user2_workstation_name

@@ -10,7 +10,8 @@ living_room_downstairs_card:
   entities:
     - light.workstation_led_strip
     - light.shelf_led_strip
-
+    - light.workstation_2_lights
+    
 living_room_sensors_card:
   name: Living room Sensors
   entities:
