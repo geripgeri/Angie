@@ -16,6 +16,7 @@ living_room_sensors_card:
   name: Living room Sensors
   entities:
     - binary_sensor.living_room_door
+    - binary_sensor.living_room_window
     - binary_sensor.pir_workstation
 
 living_room_thermostat_card:

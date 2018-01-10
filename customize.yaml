@@ -32,6 +32,9 @@ binary_sensor.entrance_door_lock:
 binary_sensor.living_room_door:
   device_class: opening
 
+binary_sensor.living_room_window:
+  device_class: opening
+  
 binary_sensor.pir_workstation:
   device_class: motion
 
