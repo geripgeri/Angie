@@ -1,4 +1,4 @@
 - platform: rpi_gpio
-  invert_logic: true
+  invert_logic: false
   ports:
     12: Living room window
