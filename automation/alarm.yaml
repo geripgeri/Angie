@@ -9,6 +9,7 @@
       to: 'on'
     - platform: state
       entity_id: binary_sensor.living_room_door
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -31,6 +32,9 @@
     - platform: state
       entity_id: binary_sensor.entrance_door_lock
       to: 'off'
+    - platform: state
+      entity_id: binary_sensor.entrance_door
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -77,6 +81,21 @@
       data:
         code: !secret alarm_code
 
+- alias: 'Arm alarm at daytime'
+  hide_entity: true
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'not home'
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.ha_alarm
+      data:
+        code: !secret alarm_code
+        
 - alias: 'Disarm alarm in the morning'
   hide_entity: true
   trigger:
@@ -91,3 +110,30 @@
       entity_id: alarm_control_panel.ha_alarm
       data:
         code: !secret alarm_code
+
+- alias: 'Disarm alarm when somebody come home'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.entrance_door
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.all_devices
+      state: home
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.ha_alarm
+          state: armed_away  
+        - condition: state
+          entity_id: alarm_control_panel.ha_alarm
+          state: armed_night  
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.ha_alarm
+      data:
+        code: !secret alarm_code
+
