@@ -1,0 +1,6 @@
+- platform: rpi_gpio_pwm
+  leds:
+    - name: Ladder wunder lights
+      driver: gpio
+      pins: 11
+      type: simple
