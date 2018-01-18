@@ -1,6 +1,6 @@
 - platform: rpi_gpio_pwm
   leds:
-    - name: Wunder Background
+    - name: Wonder Background
       driver: gpio
       pins: 6
       type: simple

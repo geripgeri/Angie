@@ -1,0 +1,33 @@
+- alias: "Turn Ladder wonder lights on when the living room door is opened."
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.living_room_door
+    to: 'on'
+  condition:
+    condition: time
+    after: '20:00:00'
+    before: '07:00:00'
+  action:
+    service: light.turn_on
+    entity_id: light.ladder_wonder_lights
+
+- alias: "Turn Ladder wonder lights off when the living room door is closed and the lights were not turned on previously."
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.living_room_door
+    to: 'off'
+    for:
+      minutes: 3
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ as_timestamp(now()) - as_timestamp( states.light.ladder_wonder_lights.last_changed) | round | int < 200 }}"
+      - condition: time
+        after: '20:00:00'
+        before: '07:00:00'
+  action:
+    service: light.turn_off
+    entity_id: light.ladder_wonder_lights

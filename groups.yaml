@@ -3,7 +3,7 @@ living_room_upstairs_card:
   name: Upstairs
   entities:
     - light.upstairs_rgb_led_strip
-    - light.wunder_background
+    - light.wonder_background
     
 living_room_downstairs_card:
   name: Downstairs
@@ -11,7 +11,7 @@ living_room_downstairs_card:
     - light.workstation_led_strip
     - light.shelf_led_strip
     - light.workstation_2_lights
-    - light.ladder_wunder_lights
+    - light.ladder_wonder_lights
     
 living_room_sensors_card:
   name: Living room Sensors
