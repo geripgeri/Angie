@@ -11,9 +11,14 @@
       entity_id: binary_sensor.living_room_door
       to: 'on'
   condition:
+    condition: and
+    conditions:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
       state: armed_away
+    - condition: state
+      entity_id: group.all_devices
+      state: not_home
   action:
     - service: alarm_control_panel.alarm_trigger
       entity_id: alarm_control_panel.ha_alarm
@@ -36,9 +41,14 @@
       entity_id: binary_sensor.entrance_door
       to: 'on'
   condition:
+    condition: and
+    conditions:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
       state: armed_night
+    - condition: state
+      entity_id: group.all_devices
+      state: not_home
   action:
     - service: alarm_control_panel.alarm_trigger
       entity_id: alarm_control_panel.ha_alarm
@@ -127,10 +137,10 @@
       conditions:
         - condition: state
           entity_id: alarm_control_panel.ha_alarm
-          state: armed_away  
+          state: 'armed_away'
         - condition: state
           entity_id: alarm_control_panel.ha_alarm
-          state: armed_night  
+          state: 'armed_night'
   action:
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.ha_alarm
