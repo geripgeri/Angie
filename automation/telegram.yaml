@@ -11,8 +11,8 @@
         target: '{{ trigger.event.data.user_id }}'
         message: 'commands'
         keyboard:
-          - '/ping, /kitty, /kitty-gif'
-          - '/status, /arm'
+          - '/ping, /status, /arm'
+          - '/kitty, /kitty-gif, /doggo'
 
 - alias: 'Telegram bot replies pong to ping'
   hide_entity: true
@@ -53,6 +53,10 @@
         photo:
           - url: https://thecatapi.com/api/images/get?type=jpg
             caption: Hey... here is a random Kitty for U ❤️
+            
+  - service: notify.Telegram_Notifier_To_User_1
+    data:
+      message: "Random Kitty sent \U0001F609"
         
 - alias: 'Telegram sends random kitty gif'
   hide_entity: true
@@ -74,6 +78,27 @@
     data:
       message: "Random Kitty sent \U0001F609"
 
+- alias: 'Telegram sends random doggo'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/doggo'
+  action:
+  - service: shell_command.get_dog_api_image
+  - service: notify.Telegram_Notifier_To_User_2
+    data:
+      message: Hey...
+      data:
+        photo:
+          - url: https://{{states.sensor.dog_api_image.state}}
+            caption: Hey... here is a random Doggo for U ❤️
+            
+  - service: notify.Telegram_Notifier_To_User_1
+    data:
+      message: "Random Doggo sent \U0001F609"
+      
 - alias: 'Telegram bot notifies when golden hour approaches'
   hide_entity: true
   trigger:
