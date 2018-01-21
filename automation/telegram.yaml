@@ -165,18 +165,29 @@
       data_template:
         message: 'The Entrance Door has been opened.'
 
-- alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed.'
+- alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed for User1.'
   hide_entity: true
   initial_state: false
   trigger:
   - platform: state
-    entity_id: !secret haveibeenpwned_entities_separeted_by_comma
+    entity_id: !secret haveibeenpwned_entities_user1_separeted_by_comma
   action:
     - service: notify.Telegram_Notifier_To_User_1
       data_template:
         message: "HaveIBeenPwned alarm \U000026A0\U00002620: `{{ trigger.to_state.attributes.friendly_name }}` : `{{ trigger.to_state.attributes['breach '+trigger.to_state.state] }}`"
 
-- alias: 'Delay HaveIBeenPwned Telegram automation'
+- alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed for User2.'
+  hide_entity: true
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: !secret haveibeenpwned_entities_user2_separeted_by_comma
+  action:
+    - service: notify.Telegram_Notifier_To_User_2
+      data_template:
+        message: "HaveIBeenPwned alarm \U000026A0\U00002620: `{{ trigger.to_state.attributes.friendly_name }}` : `{{ trigger.to_state.attributes['breach '+trigger.to_state.state] }}`"
+      
+- alias: 'Delay HaveIBeenPwned Telegram automations'
   hide_entity: True
   trigger:
     platform: homeassistant
@@ -185,7 +196,9 @@
     - delay:
         seconds: 60
     - service: automation.turn_on
-      entity_id: automation.telegram_bot_sends_alert_when_haveibeenpwned_sensor_state_changed
+      entity_id: automation.telegram_bot_sends_alert_when_haveibeenpwned_sensor_state_changed_for_user1
+    - service: automation.turn_on
+      entity_id: automation.telegram_bot_sends_alert_when_haveibeenpwned_sensor_state_changed_for_user2
 
 - alias: 'Telegram bot sends alert when the Heater is on and the Door is open.'
   hide_entity: true
