@@ -32,8 +32,40 @@
       entity_id: climate.living_room_thermostat
       data:
         temperature: 21.5
+
+- alias: 'Turn on the heater in the morning.'
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: '07:00:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.all_devices
+      state: home
+    - condition: numeric_state
+      entity_id: sensor.yr_temperature
+      below: 15
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.season
+          state: Spring
+        - condition: state
+          entity_id: sensor.season
+          state: Autumn
+        - condition: state
+          entity_id: sensor.season
+          state: Winter
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.living_room_thermostat
+      data:
+        temperature: 21.5
       
-- alias: 'Turn off the heater at night.'
+        
+- alias: 'Turn off the heater at night / when nobody is home.'
   hide_entity: true
   trigger:
   - platform: time
@@ -63,4 +95,3 @@
       entity_id: climate.living_room_thermostat
       data:
         temperature: 20
-      
