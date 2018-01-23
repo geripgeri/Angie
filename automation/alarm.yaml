@@ -127,6 +127,9 @@
     - platform: state
       entity_id: binary_sensor.entrance_door
       to: 'on'
+    - platform: state
+      entity_id: group.all_devices
+      to: 'home'
   condition:
     condition: and
     conditions:
