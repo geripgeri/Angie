@@ -5,9 +5,9 @@
     entity_id: binary_sensor.living_room_door
     to: 'on'
   condition:
-    condition: time
-    after: '20:00:00'
-    before: '07:00:00'
+    condition: sun
+    after: sunset
+    after_offset: "-1:00:00"
   action:
     service: light.turn_on
     entity_id: light.ladder_wonder_lights
@@ -19,15 +19,15 @@
     entity_id: binary_sensor.living_room_door
     to: 'off'
     for:
-      minutes: 3
+      minutes: 1
   condition:
     condition: and
     conditions:
       - condition: template
-        value_template: "{{ as_timestamp(now()) - as_timestamp( states.light.ladder_wonder_lights.last_changed) | round | int < 200 }}"
-      - condition: time
-        after: '20:00:00'
-        before: '07:00:00'
+        value_template: "{{ as_timestamp(now()) - as_timestamp( states.light.ladder_wonder_lights.last_changed) | round | int < 70 }}"
+      - condition: sun
+        after: sunset
+        after_offset: "-1:00:00"
   action:
     service: light.turn_off
     entity_id: light.ladder_wonder_lights
