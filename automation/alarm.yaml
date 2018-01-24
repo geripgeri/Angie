@@ -150,3 +150,15 @@
       data:
         code: !secret alarm_code
 
+- alias: 'Telegram bot sends alert when a door opened.'
+  hide_entity: true
+  trigger:
+  - entity_id: binary_sensor.entrance_door
+    platform: state
+    to: 'on'
+  action:
+    - service: notify.Telegram_Notifier_To_User_1
+      data_template:
+        message: 'The Entrance Door has been opened.'
+        
+        

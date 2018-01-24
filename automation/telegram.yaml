@@ -153,18 +153,6 @@
         target: '{{ trigger.event.data.user_id }}'
         message: 'Alarm armed, Alarm status: *{{ states.alarm_control_panel.ha_alarm.state }}*'
 
-
-- alias: 'Telegram bot sends alert when a door opened.'
-  hide_entity: true
-  trigger:
-  - entity_id: binary_sensor.entrance_door
-    platform: state
-    to: 'on'
-  action:
-    - service: notify.Telegram_Notifier_To_Group
-      data_template:
-        message: 'The Entrance Door has been opened.'
-
 - alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed for User1.'
   hide_entity: true
   initial_state: false
