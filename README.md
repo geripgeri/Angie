@@ -12,3 +12,5 @@ Home-assistant configuration.
 - If you want to use GPIO: 
   - `sudo systemctl enable pigpiod`
   - `sudo systemctl start pigpiod`
+  - `sudo pip3 install pigpio`
+
