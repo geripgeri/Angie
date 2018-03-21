@@ -4,6 +4,7 @@ living_room_upstairs_card:
   entities:
     - light.upstairs_rgb_led_strip
     - light.wonder_background
+    - light.chandelier
     
 living_room_downstairs_card:
   name: Downstairs
