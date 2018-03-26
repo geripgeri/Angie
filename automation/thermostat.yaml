@@ -14,13 +14,13 @@
       conditions:
         - condition: state
           entity_id: sensor.season
-          state: Spring
+          state: spring
         - condition: state
           entity_id: sensor.season
-          state: Autumn
+          state: autumn
         - condition: state
           entity_id: sensor.season
-          state: Winter
+          state: winter
     - condition: and
       conditions:
         - condition: time
@@ -51,13 +51,13 @@
       conditions:
         - condition: state
           entity_id: sensor.season
-          state: Spring
+          state: spring
         - condition: state
           entity_id: sensor.season
-          state: Autumn
+          state: autumn
         - condition: state
           entity_id: sensor.season
-          state: Winter
+          state: winter
   action:
     - service: climate.set_temperature
       entity_id: climate.living_room_thermostat
@@ -83,13 +83,13 @@
       conditions:
         - condition: state
           entity_id: sensor.season
-          state: Spring
+          state: spring
         - condition: state
           entity_id: sensor.season
-          state: Autumn
+          state: autumn
         - condition: state
           entity_id: sensor.season
-          state: Winter
+          state: winter
   action:
     - service: climate.set_temperature
       entity_id: climate.living_room_thermostat
