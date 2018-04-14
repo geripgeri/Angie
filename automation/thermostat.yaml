@@ -9,7 +9,7 @@
     conditions:
     - condition: numeric_state
       entity_id: sensor.yr_temperature
-      below: 15
+      below: 13
     - condition: or
       conditions:
         - condition: state
@@ -46,7 +46,7 @@
       state: home
     - condition: numeric_state
       entity_id: sensor.yr_temperature
-      below: 15
+      below: 13
     - condition: or
       conditions:
         - condition: state
@@ -78,7 +78,7 @@
     conditions:
     - condition: numeric_state
       entity_id: sensor.yr_temperature
-      below: 15
+      below: 13
     - condition: or
       conditions:
         - condition: state
