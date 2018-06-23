@@ -1,13 +1,9 @@
-- platform: mqtt
-  state_topic: "angie/entrance-door"
-  name: "Entrance Door"
-  payload_on: true
-  payload_off: false
-  value_template: '{{ value_json.open }}'
-
-- platform: mqtt
-  state_topic: "angie/entrance-door"
-  name: "Entrance Door Lock"
-  payload_on: false
-  payload_off: true
-  value_template: '{{ value_json.locked }}'
+- platform: rpi_gpio
+  invert_logic: true
+  ports:
+    17: Entrance Door
+  
+- platform: rpi_gpio
+  invert_logic: true
+  ports:
+    27: Entrance Door Lock
