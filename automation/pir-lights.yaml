@@ -1,4 +1,4 @@
-- alias: "Trun Workstation LED's on triggered by PIR"
+- alias: "Turn Workstation LED's on triggered by PIR"
   hide_entity: true
   trigger:
     platform: state
@@ -15,7 +15,7 @@
     data: 
       transition: 1.5
 
-- alias: "Trun Workstation LED's off triggered by PIR"
+- alias: "Turn Workstation LED's off triggered by PIR"
   hide_entity: true
   trigger:
     platform: state
