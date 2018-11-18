@@ -12,8 +12,6 @@
   action:
     service: light.turn_on
     entity_id: light.workstation_led_strip
-    data: 
-      transition: 1.5
 
 - alias: "Turn Workstation LED's off triggered by PIR"
   hide_entity: true
@@ -31,5 +29,3 @@
   action:
     service: light.turn_off
     entity_id: light.workstation_led_strip
-    data: 
-      transition: 1.5
