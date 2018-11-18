@@ -3,4 +3,6 @@
   heater: switch.living_room_heater
   target_sensor: sensor.living_room_temperature
   min_temp: 18
+  max_temp: 25
+  ac_mode: False
   target_temp: 20
