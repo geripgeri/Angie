@@ -108,12 +108,20 @@ security_entrance_door_card:
     - binary_sensor.entrance_door_lock
     - alarm_control_panel.ha_alarm
 
-people_card:
-  name: People
+phones_card:
+  name: Phones
   entities:
-    - group.all_devices
+    - device_tracker.phone1
+    - device_tracker.phone2
 
 ## Views
+people-view:
+  name: People
+  view: yes
+  entities:
+    - group.phones_card
+    - group.calendar
+
 living-room-view:
   name: Living room
   view: yes
@@ -147,4 +155,3 @@ environment:
     - group.weather_card
     - group.waqi_card
     - group.openuv_card
-
