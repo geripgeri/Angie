@@ -80,10 +80,11 @@ peidl_net_card:
     - sensor.peidlnet_status
 
 iss_card:
-  name: International Space Station
+  name: Space Programs
   entities:
     - binary_sensor.iss
     - camera.iss
+    - sensor.next_launch
 
 
 security_entrance_door_card:
@@ -113,12 +114,14 @@ security_view:
   view: yes
   entities:
     - group.security_entrance_door_card
+    - group.living_room_sensors_card
+    - group.haveibeenpwned_card
+
 
 misc-view:
   name: Misc
   view: yes
   entities:
-    - group.haveibeenpwned_card
     - group.speed_stes_card
     - group.ssl_certificate_expiry_card
     - group.iss_card
