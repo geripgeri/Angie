@@ -65,6 +65,21 @@ waqi_card:
   entities:
       !secret aqicn_api_entities
 
+openuv_card:
+  name: OpenUV
+  entities:
+    - binary_sensor.protection_window
+    - sensor.current_ozone_level
+    - sensor.current_uv_index
+    - sensor.max_uv_index
+    - sensor.current_uv_level
+    - sensor.skin_type_1_safe_exposure_time
+    - sensor.skin_type_2_safe_exposure_time
+    - sensor.skin_type_3_safe_exposure_time
+    - sensor.skin_type_4_safe_exposure_time
+    - sensor.skin_type_5_safe_exposure_time
+    - sensor.skin_type_6_safe_exposure_time
+    
 speed_stes_card:
   name: Speed test
   entities:
@@ -85,7 +100,6 @@ iss_card:
     - binary_sensor.iss
     - camera.iss
     - sensor.next_launch
-
 
 security_entrance_door_card:
   name: Entrance Door
@@ -132,3 +146,5 @@ environment:
   entities:
     - group.weather_card
     - group.waqi_card
+    - group.openuv_card
+
