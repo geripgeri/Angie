@@ -223,6 +223,17 @@
   trigger:
   - platform: state
     entity_id: sensor.external_ip
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.from_state.state != 'unknown' }}"
+      - condition: template
+        value_template: "{{ trigger.from_state.state != 'unavailable' }}"
+      - condition: template
+        value_template: "{{ states.sensor.external_ip.state != 'unknown' }}"
+      - condition: template
+        value_template: "{{ states.sensor.external_ip.state != 'unavailable' }}"
   action:
     - service: notify.Telegram_Notifier_To_User_1
       data_template:
