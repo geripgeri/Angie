@@ -48,10 +48,6 @@ frontend:
       paper-slider-secondary-color: "#33F2D8"
       
 config:
-
-http:
-  api_password: !secret http_password
-
 updater:
 
 # Discover some devices automatically
