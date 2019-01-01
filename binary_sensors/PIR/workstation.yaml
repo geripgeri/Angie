@@ -1,4 +1,4 @@
 - platform: rpi_gpio
   device_class: motion
   ports:
-    18: PIR Workstation
+    15: PIR Workstation
