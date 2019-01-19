@@ -91,7 +91,7 @@ peidl_net_card:
   name: Peidl.net
   entities:
     - sensor.ssl_certificate_expiry
-    - sensor.peidlnet_status
+    - sensor.peidl_net_status
 
 iss_card:
   name: Space Programs
