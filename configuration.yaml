@@ -107,6 +107,7 @@ google:
 
 mqtt:
   password: !secret http_password
+  discovery: true
   embedded:
 
 alarm_control_panel:
