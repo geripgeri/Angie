@@ -4,3 +4,9 @@
       driver: gpio
       pins: 26
       type: simple
+- platform: rpi_gpio_pwm
+  leds:
+    - name: Workstation Additional Led strip
+      driver: gpio
+      pins: 14
+      type: simple
