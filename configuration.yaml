@@ -80,7 +80,6 @@ sun:
 # OpenUV sensors 
 openuv:
   api_key: !secret openuv_api_key
-  scan_interval: 1920
   binary_sensors:
     monitored_conditions:
       - uv_protection_window

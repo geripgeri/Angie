@@ -1,4 +1,5 @@
 - alias: "Turn Workstation LED's on triggered by PIR"
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -10,10 +11,13 @@
     after: sunset
     after_offset: "-1:00:00"
   action:
-    service: light.turn_on
+  - service: light.turn_on
     entity_id: light.workstation_led_strip
+  - service: light.turn_on
+    entity_id: light.workstation_additional_led_strip
 
 - alias: "Turn Workstation LED's off triggered by PIR"
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -27,5 +31,8 @@
     after: sunset
     after_offset: "-1:00:00"
   action:
-    service: light.turn_off
+  - service: light.turn_off
     entity_id: light.workstation_led_strip
+  - service: light.turn_off
+    entity_id: light.workstation_additional_led_strip
+

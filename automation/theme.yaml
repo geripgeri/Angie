@@ -1,4 +1,6 @@
 - alias: 'Set dark theme for the night'
+  initial_state: true
+  hide_entity: true
   trigger:
     - platform: time
       at: '19:00'
@@ -8,7 +10,8 @@
         name: night
         
 - alias: 'Set normal theme for the day'
-  initial_state: True
+  initial_state: true
+  hide_entity: true
   trigger:
     - platform: time
       at: '07:00'

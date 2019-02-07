@@ -1,4 +1,5 @@
 - alias: "Trun off all the lights when nobody is home"
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state

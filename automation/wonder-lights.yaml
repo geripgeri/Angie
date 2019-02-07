@@ -1,4 +1,5 @@
 - alias: "Turn Ladder wonder lights on when the living room door is opened."
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state
@@ -13,6 +14,7 @@
     entity_id: light.ladder_wonder_lights
 
 - alias: "Turn Ladder wonder lights off when the living room door is closed and the lights were not turned on previously."
+  initial_state: true
   hide_entity: true
   trigger:
     platform: state

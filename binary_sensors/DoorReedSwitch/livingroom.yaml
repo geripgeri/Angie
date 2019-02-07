@@ -1,4 +1,5 @@
 - platform: rpi_gpio
+  name: Living room door
   invert_logic: true
   ports:
     13: Living room door

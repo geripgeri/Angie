@@ -1,4 +1,5 @@
 - alias: 'Trigger alarm while armed away'
+  initial_state: true
   hide_entity: true
   trigger:
     - platform: state
@@ -22,7 +23,7 @@
   action:
     - service: alarm_control_panel.alarm_trigger
       entity_id: alarm_control_panel.ha_alarm
-    - service: notify.Telegram_Notifier_To_Group
+    - service: notify.telegram_notifier_to_group
       data_template:
         message: Danger...
         data:
@@ -32,6 +33,7 @@
 
         
 - alias: 'Trigger alarm while armed night'
+  initial_state: true
   hide_entity: true
   trigger:
     - platform: state
@@ -52,7 +54,7 @@
   action:
     - service: alarm_control_panel.alarm_trigger
       entity_id: alarm_control_panel.ha_alarm
-    - service: notify.Telegram_Notifier_To_Group
+    - service: notify.telegram_notifier_to_group
       data_template:
         message: Danger...
         data:
@@ -61,6 +63,7 @@
               caption: "The alarm triggered by: {{trigger.to_state.attributes.friendly_name }}"
 
 - alias: 'Arm alarm on leave'
+  initial_state: true
   hide_entity: true
   trigger:
     - platform: state
@@ -76,6 +79,7 @@
         code: !secret alarm_code
 
 - alias: 'Arm alarm at night'
+  initial_state: true
   hide_entity: true
   trigger:
     - platform: state
@@ -92,6 +96,7 @@
         code: !secret alarm_code
 
 - alias: 'Arm alarm at daytime'
+  initial_state: true
   hide_entity: true
   trigger:
     - platform: time
@@ -107,6 +112,7 @@
         code: !secret alarm_code
         
 - alias: 'Disarm alarm in the morning'
+  initial_state: true
   hide_entity: true
   trigger:
     - platform: time
@@ -122,6 +128,7 @@
         code: !secret alarm_code
 
 - alias: 'Disarm alarm when somebody come home'
+  initial_state: true
   hide_entity: true
   trigger:
     - platform: state
@@ -151,13 +158,14 @@
         code: !secret alarm_code
 
 - alias: 'Telegram bot sends alert when a door opened.'
+  initial_state: true
   hide_entity: true
   trigger:
   - entity_id: binary_sensor.entrance_door
     platform: state
     to: 'on'
   action:
-    - service: notify.Telegram_Notifier_To_User_1
+    - service: notify.telegram_notifier_to_user_1
       data_template:
         message: 'The Entrance Door has been opened.'
         

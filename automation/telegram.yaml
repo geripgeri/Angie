@@ -1,4 +1,5 @@
 - alias: 'Telegram bot start command'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -15,6 +16,7 @@
           - '/kitty, /kitty-gif, /doggo'
 
 - alias: 'Telegram bot replies pong to ping'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -22,11 +24,12 @@
     event_data:
       command: '/ping'
   action:
-    - service: notify.Telegram_Notifier_To_User_1
+    - service: notify.telegram_notifier_to_user_1
       data_template:
         message: 'Pong'
 
 - alias: 'Telegram bot replies pong to ping in a group chat'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -34,11 +37,12 @@
     event_data:
       command: !secret telegram_bot_group_ping_cmd
   action:
-    - service: notify.Telegram_Notifier_To_Group
+    - service: notify.telegram_notifier_to_group
       data_template:
         message: 'Pong'
 
 - alias: 'Telegram sends random kitty'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -46,7 +50,7 @@
     event_data:
       command: '/kitty'
   action:
-  - service: notify.Telegram_Notifier_To_User_2
+  - service: notify.telegram_notifier_to_user_2
     data:
       message: Hey...
       data:
@@ -54,11 +58,12 @@
           - url: https://thecatapi.com/api/images/get?type=jpg
             caption: Hey... here is a random Kitty for U ❤️
             
-  - service: notify.Telegram_Notifier_To_User_1
+  - service: notify.telegram_notifier_to_user_1
     data:
       message: "Random Kitty sent \U0001F609"
         
 - alias: 'Telegram sends random kitty gif'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -66,7 +71,7 @@
     event_data:
       command: '/kitty-gif'
   action:
-  - service: notify.Telegram_Notifier_To_User_2
+  - service: notify.telegram_notifier_to_user_2
     data:
       message: Hey...
       data:
@@ -74,11 +79,12 @@
           - url: https://thecatapi.com/api/images/get?type=gif
             caption: Hey... here is a random Kitty for U ❤️
 
-  - service: notify.Telegram_Notifier_To_User_1
+  - service: notify.telegram_notifier_to_user_1
     data:
       message: "Random Kitty sent \U0001F609"
 
 - alias: 'Telegram sends random doggo'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -87,7 +93,7 @@
       command: '/doggo'
   action:
   - service: shell_command.get_dog_api_image
-  - service: notify.Telegram_Notifier_To_User_2
+  - service: notify.telegram_notifier_to_user_2
     data:
       message: Hey...
       data:
@@ -95,11 +101,12 @@
           - url: https://{{states.sensor.dog_api_image.state}}
             caption: Hey... here is a random Doggo for U ❤️
             
-  - service: notify.Telegram_Notifier_To_User_1
+  - service: notify.telegram_notifier_to_user_1
     data:
       message: "Random Doggo sent \U0001F609"
       
 - alias: 'Telegram bot notifies when golden hour approaches'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: sun
@@ -111,7 +118,7 @@
     above: 0
     below: 4
   action:
-  - service: notify.Telegram_Notifier_To_User_2
+  - service: notify.telegram_notifier_to_user_2
     data_template:
       message: Hey...
       data:
@@ -119,11 +126,12 @@
         - url: "{{ states.sensor.reddit_sunset_image.state }}"
           caption: "The golden hour approaches!\nTake some *badass* pictures \U0001F60E \U0001F4F7 \nToday the Sun will set at: {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M:%S') }}"
 
-  - service: notify.Telegram_Notifier_To_User_1
+  - service: notify.telegram_notifier_to_user_1
     data:
       message: "Golden hour notification sent \U0001F609"
 
 - alias: 'Telegram bot replies the alarm status'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -137,6 +145,7 @@
         message: 'Alarm status: *{{ states.alarm_control_panel.ha_alarm.state }}*'
 
 - alias: 'Telegram bot arms the alarm'
+  initial_state: true
   hide_entity: true
   trigger:
     platform: event
@@ -154,29 +163,30 @@
         message: 'Alarm armed, Alarm status: *{{ states.alarm_control_panel.ha_alarm.state }}*'
 
 - alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed for User1.'
-  hide_entity: true
   initial_state: false
+  hide_entity: true
   trigger:
   - platform: state
     entity_id: !secret haveibeenpwned_entities_user1_separeted_by_comma
   action:
-    - service: notify.Telegram_Notifier_To_User_1
+    - service: notify.telegram_notifier_to_user_1
       data_template:
         message: "HaveIBeenPwned alarm \U000026A0\U00002620: `{{ trigger.to_state.attributes.friendly_name }}` : `{{ trigger.to_state.attributes['breach '+trigger.to_state.state] }}`"
 
 - alias: 'Telegram bot sends alert when HaveIBeenPwned Sensor state changed for User2.'
-  hide_entity: true
   initial_state: false
+  hide_entity: true
   trigger:
   - platform: state
     entity_id: !secret haveibeenpwned_entities_user2_separeted_by_comma
   action:
-    - service: notify.Telegram_Notifier_To_User_2
+    - service: notify.telegram_notifier_to_user_2
       data_template:
         message: "HaveIBeenPwned alarm \U000026A0\U00002620: `{{ trigger.to_state.attributes.friendly_name }}` : `{{ trigger.to_state.attributes['breach '+trigger.to_state.state] }}`"
       
 - alias: 'Delay HaveIBeenPwned Telegram automations'
-  hide_entity: True
+  initial_state: true
+  hide_entity: true
   trigger:
     platform: homeassistant
     event: start
@@ -189,6 +199,7 @@
       entity_id: automation.telegram_bot_sends_alert_when_haveibeenpwned_sensor_state_changed_for_user2
 
 - alias: 'Telegram bot sends alert when the Heater is on and the Door is open.'
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: state
@@ -203,22 +214,24 @@
     entity_id: switch.living_room_heater
     state: 'on'
   action:
-    - service: notify.Telegram_Notifier_To_Group
+    - service: notify.telegram_notifier_to_group
       data_template:
         message: "The heater is on, please close the door."
 
 - alias: 'Telegram bot sends alert when Peidl.net HTTP response code Sensor state changed.'
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: numeric_state
-    entity_id: sensor.peidlnet_status
+    entity_id: sensor.peidl_net_status
     above: 200
   action:
-    - service: notify.Telegram_Notifier_To_User_1
+    - service: notify.telegram_notifier_to_user_1
       data_template:
         message: "https://peidl.net HTTP response code changed!\nStatus code: *{{ states.sensor.peidlnet_status.state }}*"
 
 - alias: 'Telegram bot sends alert when external ip changed.'
+  initial_state: true
   hide_entity: true
   trigger:
   - platform: state
@@ -235,6 +248,6 @@
       - condition: template
         value_template: "{{ states.sensor.external_ip.state != 'unavailable' }}"
   action:
-    - service: notify.Telegram_Notifier_To_User_1
+    - service: notify.telegram_notifier_to_user_1
       data_template:
         message: "External ip changed to: *{{ states.sensor.external_ip.state }}*"

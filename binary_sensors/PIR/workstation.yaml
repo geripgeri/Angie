@@ -1,4 +1,5 @@
 - platform: rpi_gpio
+  name: pir workstation
   device_class: motion
   ports:
-    15: PIR Workstation
+    15: pir workstation
