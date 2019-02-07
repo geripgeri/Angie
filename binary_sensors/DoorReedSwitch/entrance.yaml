@@ -1,5 +1,5 @@
 - platform: rpi_gpio
-  bouncetime: 500
+  bouncetime: 800
   invert_logic: true
   name: 
   ports:
