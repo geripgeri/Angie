@@ -1,12 +1,10 @@
 - platform: rpi_gpio
   bouncetime: 800
   invert_logic: true
-  name: 
   ports:
     17: entrance door
   
 - platform: rpi_gpio
   invert_logic: true
-  name: entrance door lock
   ports:
     27: entrance door lock
