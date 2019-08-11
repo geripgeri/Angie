@@ -1,8 +1,4 @@
 ## Cards
-  name: Have I been pwned?
-  entities:
-      !secret haveibeenpwned_entities
-
 weather_card:
   name: Weather
   entities:
@@ -73,13 +69,6 @@ people-view:
   view: yes
   entities:
     - group.calendar
-
-security_view:
-  name: Security
-  view: yes
-  entities:
-    - group.haveibeenpwned_card
-
 
 misc-view:
   name: Misc
