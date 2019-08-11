@@ -1,10 +1,3 @@
-sensor.living_room_temperature:
-  friendly_name: Temperature
-
-sensor.living_room_pressure:
-  friendly_name: Pressure
-  icon: mdi:clock-in
-
 sensor.yr_precipitation:
   friendly_name: Precipitation
 
@@ -22,21 +15,6 @@ sensor.speedtest_download:
 
 sensor.speedtest_upload:
   friendly_name: Upload
-
-binary_sensor.entrance_door:
-  device_class: opening
-
-binary_sensor.entrance_door_lock:
-  device_class: safety
-
-binary_sensor.living_room_door:
-  device_class: opening
-
-binary_sensor.living_room_window:
-  device_class: opening
-  
-binary_sensor.pir_workstation:
-  device_class: motion
 
 sensor.reddit_sunset_image:
   hidden: true
@@ -61,6 +39,3 @@ sensor.ssl_certificate_expiry:
 
 sensor.peidlnet_status:
     friendly_name: HTTP response code
-
-light.workstation_2_lights:
-  friendly_name: !secret user2_workstation_name

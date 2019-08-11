@@ -1,6 +1,0 @@
-- platform: rpi_gpio_pwm
-  leds:
-    - name: Workstation 2 lights
-      driver: gpio
-      pins: 5
-      type: simple
