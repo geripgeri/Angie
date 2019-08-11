@@ -7,15 +7,6 @@ sensor.yr_symbol:
 sensor.yr_temperature:
   friendly_name: Temperature
 
-sensor.speedtest_ping:
-  friendly_name: Ping
-
-sensor.speedtest_download:
-  friendly_name: Download
-
-sensor.speedtest_upload:
-  friendly_name: Upload
-
 sensor.reddit_sunset_image:
   hidden: true
 

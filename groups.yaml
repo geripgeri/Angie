@@ -29,14 +29,6 @@ openuv_card:
     - sensor.skin_type_4_safe_exposure_time
     - sensor.skin_type_5_safe_exposure_time
     - sensor.skin_type_6_safe_exposure_time
-    
-speed_stes_card:
-  name: Speed test
-  entities:
-    - sensor.speedtest_ping
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-    - sensor.external_ip
 
 peidl_net_card:
   name: Peidl.net
@@ -74,7 +66,6 @@ misc-view:
   name: Misc
   view: yes
   entities:
-    - group.speed_stes_card
     - group.ssl_certificate_expiry_card
     - group.iss_card
     - group.system_monitor_card
