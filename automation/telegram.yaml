@@ -106,7 +106,7 @@
       message: "Random Doggo sent \U0001F609"
       
 - alias: 'Telegram bot notifies when golden hour approaches'
-  initial_state: true
+  initial_state: false
   hide_entity: true
   trigger:
     platform: sun
