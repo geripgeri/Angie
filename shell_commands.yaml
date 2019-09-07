@@ -1,2 +1,2 @@
-get_dog_api_image: bash /home/homeassistant/.homeassistant/scripts/HTTP/dog-api.sh {{states.sensor.http_password.state}}
+get_dog_api_image: bash /config/scripts/HTTP/dog-api.sh {{states.sensor.http_password.state}}
 
