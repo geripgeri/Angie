@@ -1,6 +1,0 @@
-- platform: rpi_gpio_pwm
-  leds:
-    - name: Ladder wonder lights
-      driver: gpio
-      pins: 11
-      type: simple

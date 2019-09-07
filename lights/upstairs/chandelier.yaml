@@ -1,5 +1,0 @@
-- platform: mqtt
-  schema: json  
-  name: Chandelier
-  command_topic: "angie/living-room-light-switch/set"
-  state_topic: "angie/living-room-light-switch"

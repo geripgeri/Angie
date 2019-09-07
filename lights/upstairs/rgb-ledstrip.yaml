@@ -1,6 +1,0 @@
-- platform: rpi_gpio_pwm
-  leds:
-    - name: Upstairs RGB Led strip
-      driver: gpio
-      pins: [16,20,21]
-      type: rgb

@@ -1,51 +1,4 @@
 ## Cards
-living_room_upstairs_card:
-  name: Upstairs
-  entities:
-    - light.upstairs_rgb_led_strip
-    - light.wonder_background
-    - light.chandelier
-    
-living_room_downstairs_card:
-  name: Downstairs
-  entities:
-    - light.workstation_led_strip
-    - light.workstation_additional_led_strip
-    - light.workstation_2_lights
-    - light.ladder_wonder_lights
-    
-living_room_sensors_card:
-  name: Living room Sensors
-  entities:
-    - binary_sensor.living_room_door
-    - binary_sensor.living_room_window
-    - binary_sensor.pir_workstation
-
-living_room_thermostat_card:
-  name: Living room Thermostat
-  entities:
-    - sensor.living_room_pressure
-    - sensor.living_room_temperature
-    - climate.living_room_thermostat
-    - switch.living_room_heater
-
-gecko_termostat_card:
-  name: Gecko Thermostat
-  entities:
-    - climate.gecko_downstairs_thermostat
-    - climate.gecko_upstairs_thermostat
-    - sensor.gecko_downstairs_humidity
-    - sensor.gecko_downstairs_temperature
-    - sensor.gecko_upstairs_humidity
-    - sensor.gecko_upstairs_temperature
-    - switch.gecko_heater_downstairs
-    - switch.gecko_heater_upstairs
-
-haveibeenpwned_card:
-  name: Have I been pwned?
-  entities:
-      !secret haveibeenpwned_entities
-
 weather_card:
   name: Weather
   entities:
@@ -76,14 +29,6 @@ openuv_card:
     - sensor.skin_type_4_safe_exposure_time
     - sensor.skin_type_5_safe_exposure_time
     - sensor.skin_type_6_safe_exposure_time
-    
-speed_stes_card:
-  name: Speed test
-  entities:
-    - sensor.speedtest_ping
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-    - sensor.external_ip
 
 peidl_net_card:
   name: Peidl.net
@@ -97,19 +42,6 @@ iss_card:
     - binary_sensor.iss
     - camera.iss
     - sensor.next_launch
-
-security_entrance_door_card:
-  name: Entrance Door
-  entities:
-    - binary_sensor.entrance_door
-    - binary_sensor.entrance_door_lock
-    - alarm_control_panel.ha_alarm
-
-phones_card:
-  name: Phones
-  entities:
-    - device_tracker.phone1
-    - device_tracker.phone2
 
 system_monitor_card:
   name: System Monitor
@@ -128,32 +60,12 @@ people-view:
   name: People
   view: yes
   entities:
-    - group.phones_card
     - group.calendar
-
-living-room-view:
-  name: Living room
-  view: yes
-  entities:
-    - group.living_room_upstairs_card
-    - group.living_room_downstairs_card
-    - group.living_room_sensors_card
-    - group.living_room_thermostat_card
-
-security_view:
-  name: Security
-  view: yes
-  entities:
-    - group.security_entrance_door_card
-    - group.living_room_sensors_card
-    - group.haveibeenpwned_card
-
 
 misc-view:
   name: Misc
   view: yes
   entities:
-    - group.speed_stes_card
     - group.ssl_certificate_expiry_card
     - group.iss_card
     - group.system_monitor_card

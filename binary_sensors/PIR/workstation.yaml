@@ -1,3 +1,0 @@
-- platform: rpi_gpio
-  ports:
-    15: pir workstation
