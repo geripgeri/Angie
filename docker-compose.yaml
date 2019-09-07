@@ -1,0 +1,15 @@
+---
+version: "3.5"
+services:
+  homeassistant:
+    image: homeassistant/home-assistant 
+    container_name: homeassistant
+    ports:
+      - 127.0.0.1:8123:8123
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Budapest
+    volumes:
+      - ./:/config
+    restart: unless-stopped
