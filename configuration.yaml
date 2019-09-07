@@ -18,6 +18,9 @@ http:
 
 # Enables the frontend
 frontend:
+  
+system_health:
+
 map:
 
 # Enables configuration UI
@@ -56,6 +59,7 @@ map:
       
 config:
 updater:
+  reporting: false
 
 # Discover some devices automatically
 discovery:
