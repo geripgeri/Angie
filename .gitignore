@@ -11,7 +11,7 @@ home-assistant_v2.db
 lib
 deps
 tts
-secrets.yaml
+secrets*.yaml
 known_devices.yaml
 *.conf
 plex.conf
