@@ -1,0 +1,2 @@
+ - platform: wake_on_lan
+   mac_address: !secret wol_mac
