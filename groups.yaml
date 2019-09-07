@@ -40,7 +40,8 @@ iss_card:
   name: Space Programs
   entities:
     - binary_sensor.iss
-    - camera.iss
+    - sensor.iss_crew_count
+    - sensor.iss_next_rise
     - sensor.next_launch
 
 system_monitor_card:

@@ -18,6 +18,7 @@ http:
 
 # Enables the frontend
 frontend:
+map:
 
 # Enables configuration UI
   themes:
