@@ -1,0 +1,8 @@
+- platform: command_line
+  name: Git commit ID
+  scan_interval: 3600
+  command: "git rev-parse --verify --short HEAD"
+- platform: command_line
+  name: Git commit date
+  scan_interval: 3600
+  command: "git log -1 --format=%cd"
