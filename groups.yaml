@@ -52,6 +52,7 @@ system_monitor_card:
     - sensor.last_boot
     - sensor.disk_free_home
     - sensor.disk_use_percent_home
+    - sensor.processor_use
     - sensor.memory_free
     - sensor.memory_use_percent
     - sensor.load_1m
