@@ -34,7 +34,8 @@ openuv_card:
 peidl_net_card:
   name: Peidl.net
   entities:
-    - sensor.ssl_certificate_expiry
+    - sensor.ssl_cert_expiry_host1
+    - sensor.ssl_cert_expiry_host2
     - sensor.peidl_net_status
 
 iss_card:

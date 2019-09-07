@@ -24,9 +24,6 @@ sensor.weather_url_tail:
 
 sensor.http_password:
   hidden: true
-  
-sensor.ssl_certificate_expiry:
-    friendly_name: SSL valid for
 
 sensor.peidlnet_status:
     friendly_name: HTTP response code
