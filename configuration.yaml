@@ -124,9 +124,7 @@ alarm_control_panel:
   - platform: manual
     code: !secret alarm_code
     trigger_time: 1
-
-wake_on_lan:
-    
+   
 group: !include groups.yaml
 notify: !include_dir_merge_list notifies
 automation: !include_dir_merge_list automation

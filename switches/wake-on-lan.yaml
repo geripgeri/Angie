@@ -1,2 +1,8 @@
- - platform: wake_on_lan
-   mac_address: !secret wol_mac
+- platform: command_line
+  switches:
+    desktop_pc:
+      command_on: !secret wol_pc_on_command
+      command_off: !secret wol_pc_off_command
+      command_state: !secret wol_pc_state
+      value_template: '{{ value == "1" }}'
+      friendly_name: Desktop PC
