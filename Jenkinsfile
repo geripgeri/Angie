@@ -13,7 +13,7 @@ pipeline {
 	    
             steps {
 		sh 'mv secrets-example.yaml secrets.yaml'
-		sh "cd /usr/src/app && python -m homeassistant --config $WORKSPACE --script check_config"
+		sh "cd /usr/src/homeassistant && python -m homeassistant --config $WORKSPACE --script check_config"
             }
         }
     }
