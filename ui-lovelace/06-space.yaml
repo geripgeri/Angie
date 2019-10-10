@@ -1,0 +1,24 @@
+title: Space Programs
+icon: mdi:ufo-outline
+cards:
+  - type: markdown
+    content: >
+      ## Next Launch
+
+      **Name:** {{ states('sensor.next_launch') }}
+
+      **Launch time:** {{ state_attr('sensor.next_launch', 'launch_time') }}
+      {% if states.sensor.next_launch.stream is defined %}
+        [Stream]({{ state_attr('sensor.next_launch', 'stream') }})
+      {% endif %}
+
+  - type: map
+    title: International Space Station
+    default_zoom: 5
+    entities:
+      - binary_sensor.iss
+
+  - type: gauge
+    name: Crew Count
+    max: 6
+    entity: sensor.iss_crew_count
