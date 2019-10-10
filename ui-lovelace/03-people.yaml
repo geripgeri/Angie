@@ -1,0 +1,6 @@
+title: People
+icon: mdi:account-multiple
+cards:
+  - type: markdown
+    content: >
+      Here goes the content of `People`
