@@ -1,0 +1,46 @@
+title: Weather
+icon: mdi:weather-sunny
+cards:
+  - type: entities
+    title: Environment
+    show_header_toggle: false
+    entities:
+      - sensor.yr_symbol
+      - sensor.yr_temperature
+      - sensor.yr_precipitation
+      - sun.sun
+      - sensor.moon
+      - sensor.season
+
+  - type: picture-entity
+    entity: camera.weather_forcast
+
+  - type: picture-entity
+    entity: camera.weather_forcast_v2
+
+  - type: history-graph
+    title: House Temperature
+    entities:
+      - sensor.entrance_door_temperature
+
+  - type: entities
+    title: OpenUV
+    show_header_toggle: false
+    entities:
+      - binary_sensor.protection_window
+      - sensor.current_ozone_level
+      - sensor.current_uv_index
+      - sensor.max_uv_index
+      - sensor.current_uv_level
+      - sensor.skin_type_1_safe_exposure_time
+      - sensor.skin_type_2_safe_exposure_time
+      - sensor.skin_type_3_safe_exposure_time
+      - sensor.skin_type_4_safe_exposure_time
+      - sensor.skin_type_5_safe_exposure_time
+      - sensor.skin_type_6_safe_exposure_time
+
+  - type: entities
+    title: World Air Quality Index
+    show_header_toggle: false
+    entities:
+       !secret aqicn_api_entities
