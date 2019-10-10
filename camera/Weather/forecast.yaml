@@ -1,4 +1,4 @@
 - platform: generic
   still_image_url: https://www.yr.no/place/{{ states.sensor.yr_url.state}}meteogram.svg
   content_type: 'image/svg+xml'
-  name: Weather Forcast
+  name: Weather Forecast
