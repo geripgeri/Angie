@@ -13,10 +13,10 @@ cards:
       - sensor.season
 
   - type: picture-entity
-    entity: camera.weather_forcast
+    entity: camera.weather_forecast
 
   - type: picture-entity
-    entity: camera.weather_forcast_v2
+    entity: camera.weather_forecast_v2
 
   - type: history-graph
     title: House Temperature
