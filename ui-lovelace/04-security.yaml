@@ -1,0 +1,13 @@
+title: Security
+icon: mdi:security
+cards:
+  - type: alarm-panel
+    name: Alarm
+    entity: alarm_control_panel.ha_alarm
+
+  - type: entities
+    title: Locks
+    show_header_toggle: false
+    entities:
+      - binary_sensor.entrance_door
+
