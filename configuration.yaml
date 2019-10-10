@@ -125,6 +125,9 @@ alarm_control_panel:
     code: !secret alarm_code
     trigger_time: 1
    
+pi_hole:
+  host: !secret pihole_host
+
 group: !include groups.yaml
 notify: !include_dir_merge_list notifies
 automation: !include_dir_merge_list automation
