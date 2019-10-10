@@ -1,0 +1,31 @@
+title: System Monitor
+icon: mdi:gauge
+cards:
+  - type: entities
+    title: System Status
+    show_header_toggle: false
+    entities:
+      - sensor.last_boot
+      - sensor.disk_free_home
+      - sensor.disk_use_percent_home
+      - sensor.processor_use
+      - sensor.memory_free
+      - sensor.memory_use_percent
+      - sensor.load_1m
+      - sensor.load_5m
+      - sensor.load_15m
+
+  - type: entities
+    title: Home Assistant
+    show_header_toggle: false
+    entities:
+      - binary_sensor.updater
+      - sensor.git_commit_date
+      - sensor.git_commit_id
+      - sensor.current_version
+
+  - type: entities
+    title: Internet
+    show_header_toggle: false
+    entities:
+      - sensor.external_ip

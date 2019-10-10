@@ -1,0 +1,11 @@
+title: Living room
+icon: mdi:sofa
+cards:
+  - type: media-control
+    entity: media_player.mpd
+
+  - type: entities
+    title: Desktop Pc
+    show_header_toggle: false
+    entities:
+      - switch.desktop_pc

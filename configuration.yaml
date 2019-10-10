@@ -18,7 +18,10 @@ http:
 
 # Enables the frontend
 frontend:
-  
+
+lovelace:
+  mode: yaml
+
 system_health:
 
 map:
