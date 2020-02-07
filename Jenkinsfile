@@ -1,4 +1,8 @@
+String cron_string = BRANCH_NAME == "master" ? "@hourly" : ""
+
 pipeline {
+    triggers { cron(cron_string) }
+
     agent {
 	label 'docker'
     }
