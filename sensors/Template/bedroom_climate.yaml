@@ -1,0 +1,5 @@
+- platform: template
+  sensors:
+    bedroom_climate_target_temp:
+      value_template: "{{ state_attr('climate.bedroom', 'temperature') }}"
+      unit_of_measurement: "°C"

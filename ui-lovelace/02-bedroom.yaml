@@ -1,6 +1,5 @@
 title: Bedroom
 icon: mdi:hotel
 cards:
-  - type: markdown
-    content: >
-      Here goes the content of `Bedroom`
+  - type: thermostat
+    entity: climate.bedroom
