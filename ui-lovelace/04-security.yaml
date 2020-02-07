@@ -10,4 +10,4 @@ cards:
     show_header_toggle: false
     entities:
       - binary_sensor.entrance_door
-
+      - binary_sensor.entrance_door_lock
