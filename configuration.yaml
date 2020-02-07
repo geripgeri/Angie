@@ -58,6 +58,17 @@ conversation:
 # Enables support for tracking state changes over time.
 history:
 
+influxdb:
+  host: !secret influxdb_host
+  port: !secret influxdb_port
+  username: !secret influxdb_user
+  password: !secret influxdb_password
+  database: !secret influxdb_database
+  default_measurement: state
+  ssl: true
+  verify_ssl: true
+  max_retries: 10
+
 # View all events in a logbook
 logbook:
 
