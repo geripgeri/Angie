@@ -25,6 +25,8 @@ html5_push_registrations.conf
 ip_bans.yaml
 /icloud/*
 google_calendars.yaml
+**/Personal/
+**/*[p|P]ersonal*
 
 # emacs section source: https://github.com/github/gitignore/blob/master/Global/Emacs.gitignore
 
