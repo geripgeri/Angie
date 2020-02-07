@@ -40,6 +40,12 @@ media_player:
     host: !secret media_player_mpd_host
     password: !secret media_player_mpd_password
 
+  - platform: androidtv
+    name: TV
+    host: !secret tv_host
+    turn_on_command: "input keyevent 26"
+    turn_off_command: "input keyevent 26"
+
 telegram_bot:
   platform: polling
   api_key: !secret telegram_bot_api_key
