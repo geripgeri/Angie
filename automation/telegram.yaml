@@ -1,6 +1,5 @@
 - alias: 'Telegram bot start command'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -17,7 +16,6 @@
 
 - alias: 'Telegram bot replies pong to ping'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -30,7 +28,6 @@
 
 - alias: 'Telegram bot replies pong to ping in a group chat'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -43,7 +40,6 @@
 
 - alias: 'Telegram sends random kitty'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -64,7 +60,6 @@
         
 - alias: 'Telegram sends random kitty gif'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -85,7 +80,6 @@
 
 - alias: 'Telegram sends random doggo'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -107,7 +101,6 @@
       
 - alias: 'Telegram bot notifies when golden hour approaches'
   initial_state: false
-  hide_entity: true
   trigger:
     platform: sun
     event: sunset
@@ -132,7 +125,6 @@
 
 - alias: 'Telegram bot replies the alarm status'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -146,7 +138,6 @@
 
 - alias: 'Telegram bot arms the alarm'
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: telegram_command
@@ -164,7 +155,6 @@
 
 - alias: 'Telegram bot sends alert when the Heater is on and the Door is open.'
   initial_state: true
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.living_room_door
@@ -184,7 +174,6 @@
 
 - alias: 'Telegram bot sends alert when Peidl.net HTTP response code Sensor state changed.'
   initial_state: true
-  hide_entity: true
   trigger:
   - platform: numeric_state
     entity_id: sensor.peidl_net_status
@@ -196,7 +185,6 @@
 
 - alias: 'Telegram bot sends alert when external ip changed.'
   initial_state: true
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: sensor.external_ip
