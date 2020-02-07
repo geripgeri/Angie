@@ -115,6 +115,8 @@ alarm_control_panel:
 pi_hole:
   host: !secret pihole_host
 
+mobile_app:
+
 group: !include groups.yaml
 notify: !include_dir_merge_list notifies
 automation: !include_dir_merge_list automation
