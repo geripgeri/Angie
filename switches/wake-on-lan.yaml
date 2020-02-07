@@ -1,8 +1,20 @@
 - platform: command_line
   switches:
-    desktop_pc:
+    desktop_pc_wol:
       command_on: !secret wol_pc_on_command
       command_off: !secret wol_pc_off_command
-      command_state: !secret wol_pc_state
-      value_template: '{{ value == "1" }}'
       friendly_name: Desktop PC
+
+- platform: template
+  switches:
+    desktop_pc:
+      value_template: "{{ is_state('binary_sensor.desktop_pc', 'on') }}"
+      friendly_name: Desktop PC
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.desktop_pc_wol
+      turn_off:
+        service: switch.turn_off
+        data:
+          entity_id: switch.desktop_pc_wol
