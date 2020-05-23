@@ -1,0 +1,8 @@
+- platform: generic_thermostat
+  name: Gecko heater
+  heater: switch.gecko_heater
+  target_sensor: sensor.gecko_tank_temperature
+  min_temp: 22
+  max_temp: 33
+  ac_mode: False
+  target_temp: 32

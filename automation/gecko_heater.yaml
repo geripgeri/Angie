@@ -1,0 +1,21 @@
+- alias: 'Gecko heater ON.'
+  initial_state: true
+  trigger:
+  - platform: time
+    at: '08:00:00'
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.gecko_heater
+      data:
+        temperature: 32
+
+- alias: 'Gecko heater OFF.'
+  initial_state: true
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  action:
+    - service: climate.set_temperature
+      entity_id: climate.gecko_heater
+      data:
+        temperature: 22

@@ -12,3 +12,5 @@ cards:
       - switch.desktop_pc
   - type: light
     entity: light.living_room_ceiling_light
+  - type: thermostat
+    entity: climate.gecko_heater
