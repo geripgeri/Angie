@@ -14,3 +14,6 @@ cards:
     entity: light.living_room_ceiling_light
   - type: thermostat
     entity: climate.gecko_heater
+  - type: light
+    entity: light.bedroom_ambilight
+
