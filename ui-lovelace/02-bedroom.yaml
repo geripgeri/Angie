@@ -3,3 +3,5 @@ icon: mdi:hotel
 cards:
   - type: thermostat
     entity: climate.bedroom
+  - type: light
+    entity: light.bedroom_ceiling_light

@@ -1,0 +1,3 @@
+- platform: switch
+  name: Bedroom ceiling light
+  entity_id: switch.bedroom_light_switch_relay
