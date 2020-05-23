@@ -1,2 +1,7 @@
 title: Angie
+resources:
+  - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+    type: module
+
 views: !include_dir_list ui-lovelace/
+
