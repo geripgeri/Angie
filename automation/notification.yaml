@@ -20,3 +20,22 @@
     - service: notify.telegram_notifier_to_user_1
       data_template:
         message: "Check {{ trigger.to_state.name }}\nLooks like {{ trigger.to_state.name }} is {{ trigger.to_state.state }}"
+
+- id: ensure_door_is_closed
+  initial_state: 'on'
+  alias: 'Ensure entrance door closed & locked'
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.entrance_door
+        - binary_sensor.entrance_door_lock
+      to: 'on'
+      for: '00:03:00'
+  action:
+    - service: notify.notify
+      data_template:
+        title: "Check {{ trigger.to_state.name }}"
+        message: "{{ trigger.to_state.name }} is open!"
+    - service: notify.telegram_notifier_to_group
+      data_template:
+        message: "Check {{ trigger.to_state.name }}\nLooks like {{ trigger.to_state.name }} is open!"
