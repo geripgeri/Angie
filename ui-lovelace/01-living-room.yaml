@@ -10,3 +10,5 @@ cards:
     show_header_toggle: false
     entities:
       - switch.desktop_pc
+  - type: light
+    entity: light.living_room_ceiling_light
