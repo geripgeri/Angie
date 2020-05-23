@@ -1,0 +1,5 @@
+- platform: mqtt
+  qos: 2
+  devices:
+    user_1_phone: !secret user_1_phone_topic
+    user_2_phone: !secret user_2_phone_topic
