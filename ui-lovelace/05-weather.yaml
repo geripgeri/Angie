@@ -30,8 +30,9 @@ cards:
   - type: history-graph
     title: House Temperature
     entities:
+      - sensor.thermostat_temperature
+      - sensor.living_room_temperature
       - sensor.entrance_door_temperature
-
   - type: entities
     title: OpenUV
     show_header_toggle: false
