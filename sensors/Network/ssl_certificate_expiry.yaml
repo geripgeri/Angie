@@ -1,6 +1,4 @@
 - platform: cert_expiry
   host: !secret ssl_cert_expiry_host1
-  name: ssl_cert_expiry_host1
 - platform: cert_expiry
   host: !secret ssl_cert_expiry_host2
-  name: ssl_cert_expiry_host2
