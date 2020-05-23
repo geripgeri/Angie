@@ -12,6 +12,15 @@ cards:
       - sensor.moon
       - sensor.season
 
+  - type: entities
+    title: Birdhouse
+    show_header_toggle: false
+    entities:
+      - sensor.outside_temperature
+      - sensor.outside_pressure
+      - sensor.outside_illuminance
+      - binary_sensor.bird_sensor
+
   - type: picture-entity
     entity: camera.weather_forecast
 
