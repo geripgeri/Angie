@@ -1,0 +1,22 @@
+- id: ensure_smart_devices_on
+  initial_state: 'on'
+  alias: 'Ensure smart-devices are on'
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.entrance_door
+        - light.bedroom_ceiling_light
+        - light.living_room_ceiling_light
+        - sensor.thermostat_temperature
+        - sensor.outside_temperature
+        - sensor.gecko_tank_temperature
+      to: 'unavailable'
+      for: '00:05:00'
+  action:
+    - service: notify.mobile_app_user_1
+      data_template:
+        title: "Check {{ trigger.to_state.name }}"
+        message: "Looks like {{ trigger.to_state.name }} is {{ trigger.to_state.state }}"
+    - service: notify.telegram_notifier_to_user_1
+      data_template:
+        message: "Check {{ trigger.to_state.name }}\nLooks like {{ trigger.to_state.name }} is {{ trigger.to_state.state }}"
