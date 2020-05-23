@@ -5,3 +5,5 @@ cards:
     entity: climate.bedroom
   - type: light
     entity: light.bedroom_ceiling_light
+  - type: light
+    entity: light.bedroom_bed_lights
