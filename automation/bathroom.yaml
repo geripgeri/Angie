@@ -1,0 +1,23 @@
+- alias: 'Bathroom fan ON'
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.bathroom_humidity
+    above: 60
+    for:
+      minutes: 2
+  action:
+    - service: switch.turn_on
+      entity_id: switch.bathroom_fan
+
+- alias: 'Bathroom fan OFF'
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.bathroom_humidity
+    below: 50
+    for:
+      minutes: 2
+  action:
+    - service: switch.turn_off
+      entity_id: switch.bathroom_fan
