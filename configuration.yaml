@@ -50,9 +50,6 @@ telegram_bot:
   allowed_chat_ids:
     !secret telegram_bot_allowed_users
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
 # Enables support for tracking state changes over time.
 history:
 
