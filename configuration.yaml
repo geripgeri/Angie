@@ -74,10 +74,6 @@ google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_client_secret
 
-wwlln:
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  
 mqtt:
   broker: !secret mqtt_address
   password: !secret mqtt_password
