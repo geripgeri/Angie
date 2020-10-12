@@ -2,7 +2,7 @@
     "state": {
         "garbage_collection__schedule": {
             "today": "Dnes",
-            "tomorrow": "Zítra"
+            "tomorrow": "Zajtra"
         }
     }
 }

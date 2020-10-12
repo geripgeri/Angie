@@ -1,23 +1,31 @@
-import voluptuous as vol
-from .config_singularity import config_singularity
-from datetime import datetime, date
+"""Define constants used in garbage_collection."""
+
+from datetime import datetime
+from typing import Any
+
 import homeassistant.helpers.config_validation as cv
-from homeassistant.const import CONF_NAME, WEEKDAYS, CONF_ENTITIES
+import voluptuous as vol
+from homeassistant.const import ATTR_HIDDEN, CONF_ENTITIES, CONF_NAME, WEEKDAYS
+
+from .config_singularity import config_singularity
 
 """Constants for garbage_collection."""
 # Base component constants
 DOMAIN = "garbage_collection"
-DOMAIN_DATA = f"{DOMAIN}_data"
-VERSION = "2.26"
-PLATFORM = "sensor"
-ISSUE_URL = "https://github.com/bruxy70/Garbage-Collection/issues"
+CALENDAR_NAME = "Garbage Collection"
+SENSOR_PLATFORM = "sensor"
+CALENDAR_PLATFORM = "calendar"
 ATTRIBUTION = "Data from this is provided by garbage_collection."
 
 ATTR_NEXT_DATE = "next_date"
 ATTR_DAYS = "days"
+ATTR_LAST_COLLECTION = "last_collection"
+ATTR_LAST_UPDATED = "last_updated"
+ATTR_HOLIDAYS = "holidays"
 
 # Device classes
 BINARY_SENSOR_DEVICE_CLASS = "connectivity"
+DEVICE_CLASS = "garbage_collection__schedule"
 
 # Configuration
 CONF_SENSOR = "sensor"
@@ -26,6 +34,7 @@ CONF_FREQUENCY = "frequency"
 CONF_ICON_NORMAL = "icon_normal"
 CONF_ICON_TODAY = "icon_today"
 CONF_ICON_TOMORROW = "icon_tomorrow"
+CONF_OFFSET = "offset"
 CONF_EXPIRE_AFTER = "expire_after"
 CONF_VERBOSE_STATE = "verbose_state"
 CONF_FIRST_MONTH = "first_month"
@@ -38,6 +47,9 @@ CONF_DATE = "date"
 CONF_EXCLUDE_DATES = "exclude_dates"
 CONF_INCLUDE_DATES = "include_dates"
 CONF_MOVE_COUNTRY_HOLIDAYS = "move_country_holidays"
+CONF_HOLIDAY_IN_WEEK_MOVE = "holiday_in_week_move"
+CONF_HOLIDAY_POP_NAMED = "holiday_pop_named"
+CONF_HOLIDAY_MOVE_OFFSET = "holiday_move_offset"
 CONF_PROV = "prov"
 CONF_STATE = "state"
 CONF_OBSERVED = "observed"
@@ -56,6 +68,7 @@ DEFAULT_FREQUENCY = "weekly"
 DEFAULT_PERIOD = 1
 DEFAULT_FIRST_WEEK = 1
 DEFAULT_VERBOSE_STATE = False
+DEFAULT_HOLIDAY_IN_WEEK_MOVE = False
 DEFAULT_DATE_FORMAT = "%d-%b-%Y"
 DEFAULT_VERBOSE_FORMAT = "on {date}, in {days} days"
 
@@ -162,11 +175,16 @@ COUNTRY_CODES = [
     "UK",
     "US",
     "ZA",
+    "England",
+    "Wales",
+    "Scotland",
+    "IsleOfMan",
+    "NorthernIreland",
 ]
 
 
-def date_text(value):
-    """Have to store date as text - datetime is not JSON serialisable"""
+def date_text(value: Any) -> str:
+    """Have to store date as text - datetime is not JSON serialisable."""
     if value is None or value == "":
         return ""
     try:
@@ -175,8 +193,8 @@ def date_text(value):
         raise vol.Invalid(f"Invalid date: {value}")
 
 
-def time_text(value):
-    """Have to store time as text - datetime is not JSON serialisable"""
+def time_text(value: Any) -> str:
+    """Have to store time as text - datetime is not JSON serialisable."""
     if value is None or value == "":
         return ""
     try:
@@ -185,7 +203,8 @@ def time_text(value):
         raise vol.Invalid(f"Invalid date: {value}")
 
 
-def month_day_text(value):
+def month_day_text(value: Any) -> str:
+    """Validate format month/day."""
     if value is None or value == "":
         return ""
     try:
@@ -195,10 +214,11 @@ def month_day_text(value):
 
 
 class configuration(config_singularity):
-    """
-    Type and validation seems duplicare, but I cannot use custom validators in ShowForm
+    """Store validation schema for garbage_collection configuration.
+
+    Type and validation seems duplicate, but I cannot use custom validators in ShowForm
     It calls convert from voluptuous-serialize that does not accept them
-    so I pass it twice - once the type, then the validator :( )
+    so I pass it twice - once the type, then the validator.
     """
 
     options = {
@@ -208,11 +228,25 @@ class configuration(config_singularity):
             "type": str,
             "validator": cv.string,
         },
+        ATTR_HIDDEN: {
+            "step": 1,
+            "method": vol.Optional,
+            "default": False,
+            "type": bool,
+            "validator": cv.boolean,
+        },
         CONF_FREQUENCY: {
             "step": 1,
             "method": vol.Required,
             "default": DEFAULT_FREQUENCY,
             "type": vol.In(FREQUENCY_OPTIONS),
+        },
+        CONF_OFFSET: {
+            "step": 1,
+            "method": vol.Optional,
+            "default": 0,
+            "type": int,
+            "validator": vol.All(vol.Coerce(int), vol.Range(min=-31, max=31)),
         },
         CONF_ICON_NORMAL: {
             "step": 1,
@@ -261,6 +295,18 @@ class configuration(config_singularity):
             "default": DEFAULT_DATE_FORMAT,
             "type": str,
             "validator": cv.string,
+        },
+        CONF_INCLUDE_DATES: {
+            "step": 1,
+            "method": vol.Optional,
+            "type": str,
+            "validator": vol.All(cv.ensure_list, [date_text]),
+        },
+        CONF_EXCLUDE_DATES: {
+            "step": 1,
+            "method": vol.Optional,
+            "type": str,
+            "validator": vol.All(cv.ensure_list, [date_text]),
         },
         CONF_DATE: {
             "step": 2,
@@ -320,14 +366,16 @@ class configuration(config_singularity):
             "valid_for": lambda f: f in WEEKLY_DAILY,
             "method": vol.Optional,
             "default": DEFAULT_PERIOD,
-            "type": vol.All(vol.Coerce(int), vol.Range(min=1, max=52)),
+            "type": int,
+            "validator": vol.All(vol.Coerce(int), vol.Range(min=1, max=365)),
         },
         CONF_FIRST_WEEK: {
             "step": 4,
             "valid_for": lambda f: f in WEEKLY_FREQUENCY_X,
             "method": vol.Optional,
             "default": DEFAULT_FIRST_WEEK,
-            "type": vol.All(vol.Coerce(int), vol.Range(min=1, max=52)),
+            "type": int,
+            "validator": vol.All(vol.Coerce(int), vol.Range(min=1, max=52)),
         },
         CONF_FIRST_DATE: {
             "step": 4,
@@ -336,25 +384,34 @@ class configuration(config_singularity):
             "type": str,
             "validator": date_text,
         },
-        CONF_INCLUDE_DATES: {
-            "step": 4,
-            "valid_for": lambda f: f in EXCEPT_ANNUAL_GROUP,
-            "method": vol.Optional,
-            "type": str,
-            "validator": vol.All(cv.ensure_list, [date_text]),
-        },
-        CONF_EXCLUDE_DATES: {
-            "step": 4,
-            "valid_for": lambda f: f in EXCEPT_ANNUAL_GROUP,
-            "method": vol.Optional,
-            "type": str,
-            "validator": vol.All(cv.ensure_list, [date_text]),
-        },
         CONF_MOVE_COUNTRY_HOLIDAYS: {
             "step": 4,
             "valid_for": lambda f: f in EXCEPT_ANNUAL_GROUP,
             "method": vol.Optional,
             "type": vol.In(COUNTRY_CODES),
+        },
+        CONF_HOLIDAY_MOVE_OFFSET: {
+            "step": 4,
+            "valid_for": lambda f: f in EXCEPT_ANNUAL_GROUP,
+            "default": 1,
+            "method": vol.Optional,
+            "type": int,
+            "validator": vol.All(vol.Coerce(int), vol.Range(min=-7, max=7)),
+        },
+        CONF_HOLIDAY_POP_NAMED: {
+            "step": 4,
+            "valid_for": lambda f: f in EXCEPT_ANNUAL_GROUP,
+            "method": vol.Optional,
+            "type": str,
+            "validator": vol.All(cv.ensure_list, [str]),
+        },
+        CONF_HOLIDAY_IN_WEEK_MOVE: {
+            "step": 4,
+            "valid_for": lambda f: f in EXCEPT_ANNUAL_GROUP,
+            "method": vol.Optional,
+            "default": DEFAULT_HOLIDAY_IN_WEEK_MOVE,
+            "type": bool,
+            "validator": cv.boolean,
         },
         CONF_PROV: {
             "step": 4,
@@ -390,16 +447,3 @@ extra_options = {
         "validator": cv.boolean,
     }
 }
-
-CONFIGURATION = configuration()
-
-SENSOR_SCHEMA = vol.Schema(CONFIGURATION.compile_schema())
-
-CONFIG_SCHEMA = vol.Schema(
-    {
-        DOMAIN: vol.Schema(
-            {vol.Optional(CONF_SENSORS): vol.All(cv.ensure_list, [SENSOR_SCHEMA])}
-        )
-    },
-    extra=vol.ALLOW_EXTRA,
-)
