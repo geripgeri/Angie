@@ -1,0 +1,41 @@
+- alias: 'Switch the kichten light on via phisical switch'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_switch
+    to: "on"
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '22:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.kitchen_lights
+      data:
+        brightness_pct: '100'
+
+- alias: 'Switch the kichten light on via phisical switch'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_switch
+    to: "on"
+  condition:
+    - condition: time
+      after: '22:00:00'
+      before: '06:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.kitchen_lights
+      data:
+        brightness_pct: '25'
+
+- alias: 'Switch the kichten light off via phisical switch'
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_switch
+    to: "off"
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_lights
