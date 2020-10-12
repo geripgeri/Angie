@@ -12,12 +12,10 @@ homeassistant:
 
 http:
   use_x_forwarded_for: true
-  trusted_proxies: 
-    - !secret trusted_proxy
+  trusted_proxies: !secret trusted_proxy
 
 # Enables the frontend
 frontend:
-  themes: !include_dir_merge_named themes
 
 lovelace:
   mode: yaml
@@ -51,11 +49,12 @@ telegram_bot:
   allowed_chat_ids:
     !secret telegram_bot_allowed_users
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
 # Enables support for tracking state changes over time.
 history:
+# Setup recorder to use Postgresql database
+recorder:
+  db_url: !secret recorder_db_url
+  purge_keep_days: 14
 
 influxdb:
   host: !secret influxdb_host
@@ -74,18 +73,10 @@ logbook:
 # Track the sun
 sun:
 
-# OpenUV sensors 
-openuv:
-  api_key: !secret openuv_api_key
-
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_client_secret
 
-wwlln:
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  
 mqtt:
   broker: !secret mqtt_address
   password: !secret mqtt_password
@@ -98,6 +89,12 @@ alarm_control_panel:
    
 pi_hole:
   host: !secret pihole_host
+
+octoprint:
+  host: !secret octoprint_host
+  api_key: !secret octoprint_api_key
+  ssl: true
+  number_of_tools: 1
 
 mobile_app:
 
