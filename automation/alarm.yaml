@@ -156,6 +156,10 @@
   - entity_id: binary_sensor.entrance_door
     platform: state
     to: 'on'
+  condition:
+  - condition: state
+    entity_id: device_tracker.user_1_phone
+    state: 'not_home'
   action:
     - service: notify.telegram_notifier_to_user_1
       data_template:
