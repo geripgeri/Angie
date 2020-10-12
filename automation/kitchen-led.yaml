@@ -1,4 +1,4 @@
-- alias: 'Switch the kichten light on via phisical switch'
+- alias: 'Switch the kitchen light on via physical switch '
   initial_state: true
   trigger:
   - platform: state
@@ -14,7 +14,7 @@
       data:
         brightness_pct: '100'
 
-- alias: 'Switch the kichten light on via phisical switch'
+- alias: 'Switch the kitchen light on via physical switch '
   initial_state: true
   trigger:
   - platform: state
@@ -30,7 +30,7 @@
       data:
         brightness_pct: '25'
 
-- alias: 'Switch the kichten light off via phisical switch'
+- alias: 'Switch the kitchen light off via physical switch '
   initial_state: true
   trigger:
   - platform: state
