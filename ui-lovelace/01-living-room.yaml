@@ -4,10 +4,20 @@ cards:
   - type: media-control
     entity: media_player.tv
   - type: entities
-    title: Desktop Pc
+    title: PCs
     show_header_toggle: false
     entities:
       - switch.desktop_pc
+      - switch.laptop
+  - type: entities
+    title: Workstation
+    show_header_toggle: false
+    entities:
+      - light.workstation_lights
+      - switch.hdmi_swich
+      - switch.usb_swich
+      - sensor.workstation_illuminance
+      - binary_sensor.motion_sensor
   - type: light
     entity: light.living_room_ceiling_light
   - type: thermostat

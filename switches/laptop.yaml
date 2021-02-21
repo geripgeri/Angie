@@ -1,0 +1,27 @@
+- platform: command_line
+  switches:
+    laptop_wol:
+      command_on: !secret wol_laptop_on_command
+      #      command_off: !secret wol_laptop_off_command
+      friendly_name: Laptop WOL
+
+- platform: template
+  switches:
+    laptop:
+      value_template: "{{ is_state('binary_sensor.laptop', 'on') }}"
+      friendly_name: Laptop
+      icon_template:  >-
+        {% if is_state('binary_sensor.laptop', 'on') %}
+          mdi:laptop
+        {% else %}
+          mdi:laptop-off
+        {% endif %}
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.laptop_wol
+      turn_off:
+        service: switch.turn_off
+        data:
+          entity_id: switch.laptop_wol
+

@@ -1,0 +1,12 @@
+- alias: 'Wake laptop in the morning'
+  initial_state: true
+  condition:
+    condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  trigger:
+  - platform: time
+    at: '07:50:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.laptop

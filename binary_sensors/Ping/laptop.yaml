@@ -1,0 +1,3 @@
+- platform: ping
+  name: laptop
+  host: !secret laptop_ip
