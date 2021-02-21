@@ -33,10 +33,6 @@ discovery:
 
 # Media players
 media_player:
-  - platform: mpd
-    host: !secret media_player_mpd_host
-    password: !secret media_player_mpd_password
-
   - platform: androidtv
     name: TV
     host: !secret tv_host
