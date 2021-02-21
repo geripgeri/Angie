@@ -1,5 +1,5 @@
 title: Bedroom
-icon: mdi:hotel
+icon: mdi:bed
 cards:
   - type: thermostat
     entity: climate.bedroom
