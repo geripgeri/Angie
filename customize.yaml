@@ -1,16 +1,4 @@
-sensor.yr_precipitation:
-  friendly_name: Precipitation
-
-sensor.yr_symbol:
-  friendly_name: Symbol
-
-sensor.yr_temperature:
-  friendly_name: Temperature
-
 sensor.reddit_sunset_image:
-  hidden: true
-
-sensor.yr_url:
   hidden: true
 
 sensor.weather_url_head:
