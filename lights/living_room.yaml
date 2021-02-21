@@ -1,3 +1,6 @@
 - platform: switch
   name: Living room ceiling light
   entity_id: switch.living_room_light_switch_relay
+- platform: switch
+  name: Reading light
+  entity_id: switch.reading_light_switch_relay

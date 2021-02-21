@@ -24,4 +24,6 @@ cards:
     entity: climate.gecko_heater
   - type: light
     entity: light.bedroom_ambilight
+  - type: light
+    entity: light.reading_light
 
