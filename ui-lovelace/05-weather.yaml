@@ -10,6 +10,14 @@ cards:
       - sensor.season
 
   - type: entities
+    title: Bathroom
+    show_header_toggle: false
+    entities:
+      - sensor.bathroom_humidity
+      - sensor.bathroom_temperature
+      - switch.bathroom_fan
+
+  - type: entities
     title: Birdhouse
     show_header_toggle: false
     entities:
