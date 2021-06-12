@@ -1,5 +1,0 @@
-- platform: philips_ambilight
-  name: Bedroom Ambilight
-  host: !secret ambilight_host
-  username: !secret ambilight_username
-  password: !secret ambilight_password
