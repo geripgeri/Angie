@@ -1,4 +1,5 @@
 title: Bedroom
+path: bedroom
 icon: mdi:bed
 cards:
   - type: thermostat
