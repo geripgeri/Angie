@@ -5,4 +5,3 @@
   min_temp: 20
   max_temp: 25
   ac_mode: False
-  target_temp: 21.5
