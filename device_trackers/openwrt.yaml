@@ -1,4 +1,0 @@
-- platform: luci
-  host: !secret openwrt_host
-  username: !secret openwrt_username
-  password: !secret openwrt_password
