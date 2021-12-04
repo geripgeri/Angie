@@ -39,3 +39,14 @@
     - service: notify.telegram_notifier_to_group
       data_template:
         message: "Check {{ trigger.to_state.name }}\nLooks like {{ trigger.to_state.name }} is open!"
+
+- alias: "Update Available Notification"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.updater
+      from: "off"
+      to: "on"
+  action:
+    - service: notify.notify
+      data:
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
