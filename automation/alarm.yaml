@@ -2,13 +2,7 @@
   initial_state: true
   trigger:
     - platform: state
-      entity_id: binary_sensor.pir_workstation
-      to: 'on'
-    - platform: state
       entity_id: binary_sensor.entrance_door
-      to: 'on'
-    - platform: state
-      entity_id: binary_sensor.living_room_door
       to: 'on'
   condition:
     condition: and
@@ -17,7 +11,7 @@
       entity_id: alarm_control_panel.ha_alarm
       state: armed_away
     - condition: state
-      entity_id: group.all_devices
+      entity_id: group.persons
       state: not_home
   action:
     - service: alarm_control_panel.alarm_trigger
@@ -30,7 +24,6 @@
             - url: !secret alarm_picture
               caption: "The alarm triggered by: {{trigger.to_state.attributes.friendly_name }}"
 
-        
 - alias: 'Trigger alarm while armed night'
   initial_state: true
   trigger:
@@ -47,7 +40,7 @@
       entity_id: alarm_control_panel.ha_alarm
       state: armed_night
     - condition: state
-      entity_id: group.all_devices
+      entity_id: group.persons
       state: not_home
   action:
     - service: alarm_control_panel.alarm_trigger
@@ -98,7 +91,7 @@
       at: '07:00:00'
   condition:
     - condition: state
-      entity_id: group.all_devices
+      entity_id: group.persons
       state: 'not home'
   action:
     - service: alarm_control_panel.alarm_arm_away
@@ -113,7 +106,7 @@
       at: '07:00:00'
   condition:
     - condition: state
-      entity_id: group.all_devices
+      entity_id: group.persons
       state: home
   action:
     - service: alarm_control_panel.alarm_disarm
@@ -128,13 +121,13 @@
       entity_id: binary_sensor.entrance_door
       to: 'on'
     - platform: state
-      entity_id: group.all_devices
+      entity_id: group.persons
       to: 'home'
   condition:
     condition: and
     conditions:
     - condition: state
-      entity_id: group.all_devices
+      entity_id: group.persons
       state: home
     - condition: or
       conditions:
@@ -158,11 +151,9 @@
     to: 'on'
   condition:
   - condition: state
-    entity_id: device_tracker.user_1_phone
+    entity_id: group.persons
     state: 'not_home'
   action:
     - service: notify.telegram_notifier_to_user_1
       data_template:
         message: 'The Entrance Door has been opened.'
-        
-        
