@@ -1,3 +1,13 @@
+- alias: 'Turn off the TV screen'
+  initial_state: true
+  trigger:
+  action:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.tv
+        command: >-
+          am start -n 'org.droidtv.settings/.quicksettings.QuickSettingsActivity' && input keyevent 123 && input tap 500 600
+
 - alias: 'Play Spotify playlist'
   initial_state: true
   trigger:
