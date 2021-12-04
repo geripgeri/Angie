@@ -7,4 +7,12 @@ cards:
   - type: light
     entity: light.bedroom_ceiling_light
   - type: light
+    entity: light.bedroom_fairy_lights
+  - type: light
     entity: light.bedroom_bed_lights
+  - type: light
+    entity: light.bedroom_bulb_lights
+  - type: light
+    entity: light.bedroom_ladder_lights
+  - type: light
+    entity: light.bedroom_wall_lights
