@@ -18,6 +18,10 @@ cards:
       - sensor.bathroom_temperature
       - switch.bathroom_fan
 
+  - type: sensor
+    graph: line
+    entity: sensor.outside_temperature
+
   - type: entities
     title: Birdhouse
     show_header_toggle: false
