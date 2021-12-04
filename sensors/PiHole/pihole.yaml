@@ -1,3 +1,0 @@
-- platform: pi_hole
-  ssl: true
-  verify_ssl: true
