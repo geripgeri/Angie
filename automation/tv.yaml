@@ -1,0 +1,13 @@
+- alias: 'Play Spotify playlist'
+  initial_state: true
+  trigger:
+  action:
+    - service: spotcast.start
+      data:
+        entity_id: media_player.tv_chromecast
+        uri: !secret spotify_favorites_playlist
+        force_playback: true
+        random_song: true
+        shuffle: true
+        offset: 1
+        start_volume: 25 
