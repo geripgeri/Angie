@@ -27,4 +27,8 @@ cards:
     entity: light.bedroom_ambilight
   - type: light
     entity: light.reading_light
+  - type: 'custom:spotify-card'
+    always_play_random_song: true
+    display_style: Grid
+    default_device: media_player.tv_chromecast
 

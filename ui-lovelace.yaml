@@ -2,6 +2,7 @@ title: Angie
 resources:
   - url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
     type: module
-
+  - url: /hacsfiles/spotify-card/spotify-card.js
+    type: module
 views: !include_dir_list ui-lovelace/
 
