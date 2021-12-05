@@ -6,3 +6,11 @@
   name: Git commit date
   scan_interval: 3600
   command: "git log -1 --format=%cd"
+- platform: command_line
+  name: Git upstream commit ID
+  scan_interval: 3600
+  command: "curl -s https://api.github.com/repos/geripgeri/Angie/commits/master | jq -r \".sha\" | head -c 7"
+- platform: command_line
+  name: Git upstream commit date
+  scan_interval: 3600
+  command: "curl -s https://api.github.com/repos/geripgeri/Angie/commits/master | jq -r \".commit.author.date\""
