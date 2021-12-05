@@ -2,8 +2,6 @@
   sensors:
     iss_next_rise:
       value_template: "{% set nextrise = as_timestamp(states.binary_sensor.iss.attributes.next_rise) | timestamp_custom('%a, %b %d at %I:%M %p') %} {{ nextrise }}"
-      entity_id: binary_sensor.iss
     iss_crew_count:
       value_template: "{{ states.binary_sensor.iss.attributes.number_of_people_in_space }}"
-      entity_id: binary_sensor.iss
       friendly_name: Crew Count
