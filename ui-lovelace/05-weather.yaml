@@ -37,6 +37,9 @@ cards:
   - type: picture-entity
     entity: camera.weather_forecast_v2
 
+  - type: weather-forecast
+    entity: weather.openweathermap
+
   - type: history-graph
     title: House Temperature
     entities:
