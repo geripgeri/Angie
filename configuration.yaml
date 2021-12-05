@@ -82,15 +82,6 @@ alarm_control_panel:
   - platform: manual
     code: !secret alarm_code
     trigger_time: 1
-   
-pi_hole:
-  host: !secret pihole_host
-
-octoprint:
-  host: !secret octoprint_host
-  api_key: !secret octoprint_api_key
-  ssl: true
-  number_of_tools: 1
 
 mobile_app:
 
