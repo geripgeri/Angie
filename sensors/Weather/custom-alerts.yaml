@@ -1,0 +1,4 @@
+- platform: met_alerts_hu
+  name: 'MET alerts'
+  region_id: !secret met_region_id
+  county_id: !secret met_county_id
