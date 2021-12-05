@@ -64,3 +64,6 @@ cards:
     show_header_toggle: false
     entities:
        !secret aqicn_api_entities
+
+  - type: 'custom:sun-card'
+    title: Sun
