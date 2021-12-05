@@ -37,6 +37,12 @@ cards:
   - type: picture-entity
     entity: camera.weather_forecast_v2
 
+  - type: picture-entity
+    entity: camera.weather
+
+  - type: picture-entity
+    entity: camera.ffmpeg
+
   - type: weather-forecast
     entity: weather.openweathermap
 
