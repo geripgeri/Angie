@@ -10,21 +10,10 @@ cards:
     entities:
       - switch.desktop_pc
       - switch.laptop
-  - type: entities
-    title: Workstation
-    show_header_toggle: false
-    entities:
-      - light.workstation_lights
-      - switch.hdmi_swich
-      - switch.usb_swich
-      - sensor.workstation_illuminance
-      - binary_sensor.motion_sensor
   - type: light
     entity: light.living_room_ceiling_light
   - type: thermostat
     entity: climate.gecko_heater
-  - type: light
-    entity: light.bedroom_ambilight
   - type: light
     entity: light.reading_light
   - type: 'custom:spotify-card'
