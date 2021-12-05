@@ -9,3 +9,23 @@
       data:
         title: "Intercom"
         message: "The intercom is ringing! \U0001F514\U0001F4DE\U0001F514"
+
+- alias: 'Disable Intercom at night'
+  initial_state: true
+  trigger:
+    - platform: time
+      at: '22:00'
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.enable_intercom
+
+- alias: 'Enable Intercom at daytime'
+  initial_state: true
+  trigger:
+    - platform: time
+      at: '07:30'
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.enable_intercom
