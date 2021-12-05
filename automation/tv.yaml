@@ -21,3 +21,13 @@
         shuffle: true
         offset: 1
         start_volume: 25 
+
+- alias: "Show alarm on tv"
+  initial_state: true
+  trigger:
+  action:
+    - service: cast.show_lovelace_view
+      data:
+        dashboard_path: lovelace
+        entity_id: media_player.tv_chromecast
+        view_path: security
