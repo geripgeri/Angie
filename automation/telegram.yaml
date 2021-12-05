@@ -203,3 +203,51 @@
     - service: notify.telegram_notifier_to_user_1
       data_template:
         message: "External ip changed to: *{{ states.sensor.external_ip.state }}*"
+
+- id: '1618778891001'
+  alias: Washing machine has finished
+  description: ''
+  use_blueprint:
+    path: sbyx/notify-or-do-something-when-an-appliance-like-a-dishwasher-or-washing-machine-finishes.yaml
+    input:
+      power_sensor: sensor.washing_machine_wattage
+      actions:
+      - service: notify.telegram_notifier_to_group
+        data:
+          message: Washing machine has finished! 💧👕
+
+- id: '1622815331224'
+  alias: Dishwasher has finished
+  description: ''
+  use_blueprint:
+    path: sbyx/notify-or-do-something-when-an-appliance-like-a-dishwasher-or-washing-machine-finishes.yaml
+    input:
+      power_sensor: sensor.dishwasher_switch_wattage
+      actions:
+      - service: notify.telegram_notifier_to_group
+        data:
+          message: Dishwasher has finished! 🍽🧽
+
+- alias: Owen preheat
+  description: ''
+  use_blueprint:
+    path: sbyx/notify-or-do-something-when-an-appliance-like-a-dishwasher-or-washing-machine-finishes.yaml
+    input:
+      power_sensor: sensor.oven_switch_wattage
+      actions:
+      - service: notify.telegram_notifier_to_group
+        data:
+          message: The owen is ready & preheated! ♨️🔥
+
+- alias: Tag Entrance door is scanned
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 09338c6e-ed2b-4507-8c6e-dc4f20109651
+  condition: []
+  action:
+  - service: notify.telegram_notifier_to_user_1
+    data:
+      message: asfd
+      title: asddd
+  mode: single
