@@ -1,3 +1,10 @@
 - platform: switch
   name: Bedroom ceiling light
   entity_id: switch.bedroom_light_switch_relay
+- platform: group
+  name: Bedroom fairy lights
+  entities: 
+    - light.bedroom_bed_lights
+    - light.bedroom_bulb_lights
+    - light.bedroom_ladder_lights
+    - light.bedroom_wall_lights
