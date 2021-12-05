@@ -1,3 +1,4 @@
+---
 name: Docker CI
 
 on:
@@ -17,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Pull docker image
-      run: docker pull homeassistant/home-assistant 
-    - name: Create secrets.yaml
-      run: mv secrets-example.yaml secrets.yaml
-    - name: Check configuration
-      run: docker run --rm -v $(pwd):/config homeassistant/home-assistant hass -c . --script check_config --files --secrets
+      - uses: actions/checkout@v2
+      - name: Pull docker image
+        run: docker pull homeassistant/home-assistant
+      - name: Create secrets.yaml
+        run: mv secrets-example.yaml secrets.yaml
+      - name: check configuration
+        run: docker run --rm -v $(pwd):/config homeassistant/home-assistant hass -c . --script check_config --files --secrets

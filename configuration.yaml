@@ -5,14 +5,19 @@ homeassistant:
   longitude: !secret home_longitude
   elevation: !secret home_elevation
   unit_system: metric
-  time_zone: Europe/Budapest
+  currency: !secret currency
+  time_zone: !secret time_zone
   customize: !include customize.yaml
+  external_url: !secret external_url
+  internal_url: !secret internal_url
   auth_providers:
     - type: homeassistant
 
 http:
   use_x_forwarded_for: true
   trusted_proxies: !secret trusted_proxy
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
 
 # Enables the frontend
 frontend:
