@@ -39,6 +39,10 @@ media_player:
     turn_on_command: "input keyevent 26"
     turn_off_command: "input keyevent 26"
 
+  - platform: androidtv
+    name: kiosk_tablet
+    host: !secret kiosk_tablet_host
+
 telegram_bot:
   platform: polling
   api_key: !secret telegram_bot_api_key
