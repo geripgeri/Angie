@@ -1,0 +1,11 @@
+- alias: 'Door bell notification'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bell_button
+      to: 'on'
+  action:
+    - service: notify.telegram_notifier_to_group
+      data:
+        title: "Door bell"
+        message: "The door bell is ringing! \U0001F514\U0001F6AA\U0001F514"
