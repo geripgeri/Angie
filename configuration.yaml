@@ -113,4 +113,5 @@ switch: !include_dir_merge_list switches
 climate: !include_dir_merge_list climate
 script: !include_dir_merge_list scripts
 shell_command: !include shell_commands.yaml
+group: !include groups.yaml
 
