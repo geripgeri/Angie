@@ -4,7 +4,12 @@ resources:
     type: module
   - url: /hacsfiles/spotify-card/spotify-card.js
     type: module
+  - url: /hacsfiles/button-card/button-card.js
+    type: module
   - url: /hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js
     type: module
+  - url: /hacsfiles/pollen-hu-card/pollen-hu-card.js
+    type: module
+                
 views: !include_dir_list ui-lovelace/
 

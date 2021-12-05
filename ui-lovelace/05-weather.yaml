@@ -104,3 +104,32 @@ cards:
       show_name: false
       entity: sensor.met_alerts
       color_type: icon
+
+  - type: conditional
+    conditions:
+      - entity: sensor.pollen
+        state_not: '0'
+      - entity: sensor.pollen
+        state_not: '1'
+      - entity: sensor.pollen
+        state_not: '2'
+    card:
+      type: custom:button-card
+      icon: mdi:blur
+      size: 30px
+      styles:
+        label:
+          - font-size: 90%
+        card:
+          - height: 80px
+        icon:
+          - color: red
+      label: >
+        [[[
+          var pollen = states['sensor.pollen'].attributes.dominant_pollen;
+          return pollen;
+        ]]]
+      show_label: true
+      show_name: false
+      entity: sensor.pollen
+      color_type: icon

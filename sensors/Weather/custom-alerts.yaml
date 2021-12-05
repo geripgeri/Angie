@@ -2,3 +2,6 @@
   name: 'MET alerts'
   region_id: !secret met_region_id
   county_id: !secret met_county_id
+
+- platform: pollen_hu
+  name: 'Pollen'
