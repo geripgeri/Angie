@@ -1,2 +1,2 @@
 get_dog_api_image: bash /config/scripts/HTTP/dog-api.sh {{states.sensor.http_password.state}}
-
+desktop_pc_turn_off: !secret wol_pc_off_command

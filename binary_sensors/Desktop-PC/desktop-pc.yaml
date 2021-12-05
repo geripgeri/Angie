@@ -1,3 +1,0 @@
-- platform: ping
-  name: Desktop-PC
-  host: !secret desktop_pc_ip
