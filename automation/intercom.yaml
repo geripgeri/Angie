@@ -1,0 +1,11 @@
+- alias: 'Intercom notification'
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.intercom
+      to: 'on'
+  action:
+    - service: notify.telegram_notifier_to_group
+      data:
+        title: "Intercom"
+        message: "The intercom is ringing! \U0001F514\U0001F4DE\U0001F514"
