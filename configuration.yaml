@@ -80,6 +80,12 @@ logbook:
 # Track the sun
 sun:
 energy:
+zone:
+  - name: Home
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: !secret home_radius
+    icon: mdi:home
 
 google:
   client_id: !secret google_calendar_client_id
