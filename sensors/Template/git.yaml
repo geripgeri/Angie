@@ -1,0 +1,4 @@
+- platform: template
+  sensors:
+    git_up_to_date:
+      value_template: "{{ is_state('sensor.git_upstream_commit_id', states('sensor.git_upstream_commit_id')) }}"

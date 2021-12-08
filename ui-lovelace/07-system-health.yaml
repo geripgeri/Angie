@@ -21,8 +21,7 @@ cards:
     show_header_toggle: false
     entities:
       - binary_sensor.updater
-      - sensor.git_commit_date
-      - sensor.git_commit_id
+      - sensor.git_up_to_date
       - sensor.current_version
 
   - type: entities
