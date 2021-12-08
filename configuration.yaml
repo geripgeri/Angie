@@ -19,6 +19,8 @@ http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
 
+websocket_api:
+
 # Enables the frontend
 frontend:
 
