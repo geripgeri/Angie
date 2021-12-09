@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    git_up_to_date:
+      friendly_name: "Git up-to-date"
+      value_template: "{{ not is_state('sensor.git_upstream_commit_id', states('sensor.git_upstream_commit_id')) }}"
+      device_class: update
