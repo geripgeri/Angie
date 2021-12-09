@@ -1,7 +1,19 @@
 title: People
 path: people
 icon: mdi:account-multiple
+
 cards:
-  - type: markdown
-    content: >
-      Here goes the content of `People`
+  - type: grid
+    title: The little family.
+    columns: 2
+    square: false
+    cards:
+      - type: entity
+        entity: !secret person_1
+      - type: entity
+        entity: !secret person_2
+
+  - type: calendar
+    initial_view: dayGridDay
+    entities:
+      - !secret calendars
