@@ -1,6 +1,7 @@
 - platform: generic
-  still_image_url: !secret weather_camera
   name: Weather
+  still_image_url: !secret weather_camera
+  limit_refetch_to_url_change: true
 
 - platform: ffmpeg
   name: Weather Radar
