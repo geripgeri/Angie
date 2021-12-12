@@ -41,7 +41,7 @@ cards:
     entity: camera.weather
 
   - type: picture-entity
-    entity: camera.ffmpeg
+    entity: camera.weather_radar
 
   - type: weather-forecast
     entity: weather.openweathermap
