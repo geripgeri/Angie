@@ -50,3 +50,23 @@
     - service: notify.notify
       data:
         message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+
+- alias: "MET Alert"
+  id: met_alert
+  trigger:
+    - platform: state
+      entity_id: sensor.met_alerts
+  condition:
+    condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.met_alerts
+        state: '0'
+  action:
+    - service: notify.notify
+      data:
+        title: "MET Alert"
+        message: "{{ states['sensor.met_alerts'].attributes.dominant_met_alert }}, Severity: {{ states['sensor.met_alerts'].attributes.dominant_met_alert_value }}."
+        data:
+          image: !secret forecast-3-url
+          notification_icon: "{{ state_attr('sensor.met_alerts', 'icon') }}"
