@@ -1,0 +1,10 @@
+- platform: template
+  sensors:
+    oven:
+      value_template: >-
+        {% set amperage = states("sensor.oven_switch_amperage") | float %}
+        {% if 0.5 < amperage > 4 %}
+        Heating
+        {% else %}
+        Off
+        {% endif %}
